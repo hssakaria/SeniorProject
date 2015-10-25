@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C129301C1BDC3FA000064AD3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */; };
+		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; settings = {ASSET_TAGS = (); }; };
+		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C155F1DE1BD692960018384E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F1DD1BD692960018384E /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
+		C1901E1C1BD6287800BB4887 /* StopsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */; settings = {ASSET_TAGS = (); }; };
+		C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4D1BD1632000301771 /* AppDelegate.swift */; };
+		C1F94C501BD1632000301771 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4F1BD1632000301771 /* ViewController.swift */; };
+		C1F94C531BD1632000301771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F94C511BD1632000301771 /* Main.storyboard */; };
+		C1F94C551BD1632000301771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1F94C541BD1632000301771 /* Assets.xcassets */; };
+		C1F94C631BD1632100301771 /* BroncoXpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C621BD1632100301771 /* BroncoXpressTests.swift */; };
+		C1F94C6E1BD1632100301771 /* BroncoXpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C6D1BD1632100301771 /* BroncoXpressUITests.swift */; };
+		C1F94C821BD1639800301771 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7B1BD1639800301771 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C831BD1639800301771 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7C1BD1639800301771 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C841BD1639800301771 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7D1BD1639800301771 /* ParseCrashReporting.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C851BD1639800301771 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7E1BD1639800301771 /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C861BD1639800301771 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7F1BD1639800301771 /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C871BD1639800301771 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C801BD1639800301771 /* ParseTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C881BD1639800301771 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C811BD1639800301771 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C8A1BD163CF00301771 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C891BD163CF00301771 /* AudioToolbox.framework */; };
+		C1F94C8C1BD163D900301771 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C8B1BD163D900301771 /* CFNetwork.framework */; };
+		C1F94C8E1BD163E400301771 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C8D1BD163E400301771 /* CoreGraphics.framework */; };
+		C1F94C901BD163ED00301771 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C8F1BD163ED00301771 /* QuartzCore.framework */; };
+		C1F94C921BD163F900301771 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C911BD163F900301771 /* Security.framework */; };
+		C1F94C941BD1640300301771 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C931BD1640300301771 /* StoreKit.framework */; };
+		C1F94C961BD1641200301771 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C951BD1641200301771 /* SystemConfiguration.framework */; };
+		C1F94C9D1BD1647100301771 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C9C1BD1647100301771 /* libz.tbd */; };
+		C1F94C9F1BD1647D00301771 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C9E1BD1647D00301771 /* libsqlite3.tbd */; };
+		C1F94CA11BD1656500301771 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94CA01BD1656400301771 /* Accounts.framework */; };
+		C1F94CA31BD1656F00301771 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94CA21BD1656F00301771 /* Social.framework */; };
+		C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CB0BBD42FCFAB83C65B1A6CA /* Pods_BroncoXpress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEA934BE76E1226CBC178AA /* Pods_BroncoXpress.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1F94C5F1BD1632100301771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1F94C421BD1632000301771 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F94C491BD1632000301771;
+			remoteInfo = BroncoXpress;
+		};
+		C1F94C6A1BD1632100301771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1F94C421BD1632000301771 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F94C491BD1632000301771;
+			remoteInfo = BroncoXpress;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C27833682DE3476EA86F278 /* Pods-BroncoXpress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroncoXpress.release.xcconfig"; path = "Pods/Target Support Files/Pods-BroncoXpress/Pods-BroncoXpress.release.xcconfig"; sourceTree = "<group>"; };
+		C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		C129301F1BDC4A9700064AD3 /* Jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jsonfile.json; sourceTree = "<group>"; };
+		C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; tabWidth = 6; usesTabs = 1; };
+		C155F1DD1BD692960018384E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C1901E1B1BD6287800BB4887 /* StopsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewController.swift; sourceTree = "<group>"; };
+		C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesController.swift; sourceTree = "<group>"; };
+		C1F94C4A1BD1632000301771 /* BroncoXpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BroncoXpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F94C4D1BD1632000301771 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C1F94C4F1BD1632000301771 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1F94C521BD1632000301771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1F94C541BD1632000301771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1F94C591BD1632000301771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F94C5E1BD1632100301771 /* BroncoXpressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BroncoXpressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F94C621BD1632100301771 /* BroncoXpressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroncoXpressTests.swift; sourceTree = "<group>"; };
+		C1F94C641BD1632100301771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F94C691BD1632100301771 /* BroncoXpressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BroncoXpressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F94C6D1BD1632100301771 /* BroncoXpressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroncoXpressUITests.swift; sourceTree = "<group>"; };
+		C1F94C6F1BD1632100301771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F94C7B1BD1639800301771 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C1F94C7C1BD1639800301771 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		C1F94C7D1BD1639800301771 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		C1F94C7E1BD1639800301771 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		C1F94C7F1BD1639800301771 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		C1F94C801BD1639800301771 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		C1F94C811BD1639800301771 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		C1F94C891BD163CF00301771 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C1F94C8B1BD163D900301771 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C1F94C8D1BD163E400301771 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C1F94C8F1BD163ED00301771 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C1F94C911BD163F900301771 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C1F94C931BD1640300301771 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C1F94C951BD1641200301771 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C1F94C9C1BD1647100301771 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C1F94C9E1BD1647D00301771 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C1F94CA01BD1656400301771 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C1F94CA21BD1656F00301771 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C1F94CA51BD165F300301771 /* BroncoXpress-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BroncoXpress-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveMapViewController.swift; sourceTree = "<group>"; };
+		DEEA934BE76E1226CBC178AA /* Pods_BroncoXpress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BroncoXpress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED224D8F9D76460D54DAB6B6 /* Pods-BroncoXpress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroncoXpress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BroncoXpress/Pods-BroncoXpress.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1F94C471BD1632000301771 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C129301C1BDC3FA000064AD3 /* SwiftyJSON.framework in Frameworks */,
+				C1F94CA31BD1656F00301771 /* Social.framework in Frameworks */,
+				C1F94CA11BD1656500301771 /* Accounts.framework in Frameworks */,
+				C1F94C9F1BD1647D00301771 /* libsqlite3.tbd in Frameworks */,
+				C1F94C9D1BD1647100301771 /* libz.tbd in Frameworks */,
+				C1F94C961BD1641200301771 /* SystemConfiguration.framework in Frameworks */,
+				C1F94C941BD1640300301771 /* StoreKit.framework in Frameworks */,
+				C1F94C921BD163F900301771 /* Security.framework in Frameworks */,
+				C1F94C901BD163ED00301771 /* QuartzCore.framework in Frameworks */,
+				C1F94C8E1BD163E400301771 /* CoreGraphics.framework in Frameworks */,
+				C1F94C8C1BD163D900301771 /* CFNetwork.framework in Frameworks */,
+				C1F94C8A1BD163CF00301771 /* AudioToolbox.framework in Frameworks */,
+				C1F94C831BD1639800301771 /* Parse.framework in Frameworks */,
+				C1F94C841BD1639800301771 /* ParseCrashReporting.framework in Frameworks */,
+				C1F94C881BD1639800301771 /* ParseUI.framework in Frameworks */,
+				C1F94C851BD1639800301771 /* ParseFacebookUtils.framework in Frameworks */,
+				C1F94C821BD1639800301771 /* Bolts.framework in Frameworks */,
+				C1F94C871BD1639800301771 /* ParseTwitterUtils.framework in Frameworks */,
+				C1F94C861BD1639800301771 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				CB0BBD42FCFAB83C65B1A6CA /* Pods_BroncoXpress.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C5B1BD1632100301771 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C661BD1632100301771 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2340960347893961A09965DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED224D8F9D76460D54DAB6B6 /* Pods-BroncoXpress.debug.xcconfig */,
+				4C27833682DE3476EA86F278 /* Pods-BroncoXpress.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C155F1DF1BD692A50018384E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C155F1DD1BD692960018384E /* DataManager.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		C1F94C411BD1632000301771 = {
+			isa = PBXGroup;
+			children = (
+				C1F94CA41BD1657600301771 /* Frameworks */,
+				C1F94C4C1BD1632000301771 /* BroncoXpress */,
+				C1F94C611BD1632100301771 /* BroncoXpressTests */,
+				C1F94C6C1BD1632100301771 /* BroncoXpressUITests */,
+				C1F94C4B1BD1632000301771 /* Products */,
+				2340960347893961A09965DA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		C1F94C4B1BD1632000301771 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1F94C4A1BD1632000301771 /* BroncoXpress.app */,
+				C1F94C5E1BD1632100301771 /* BroncoXpressTests.xctest */,
+				C1F94C691BD1632100301771 /* BroncoXpressUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1F94C4C1BD1632000301771 /* BroncoXpress */ = {
+			isa = PBXGroup;
+			children = (
+				C1F94CA51BD165F300301771 /* BroncoXpress-Bridging-Header.h */,
+				C129301F1BDC4A9700064AD3 /* Jsonfile.json */,
+				C1F94C4D1BD1632000301771 /* AppDelegate.swift */,
+				C1F94C511BD1632000301771 /* Main.storyboard */,
+				C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */,
+				C1901E1B1BD6287800BB4887 /* StopsTableViewController.swift */,
+				C1F94C4F1BD1632000301771 /* ViewController.swift */,
+				C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */,
+				C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */,
+				C1F94C541BD1632000301771 /* Assets.xcassets */,
+				C1F94C591BD1632000301771 /* Info.plist */,
+				C155F1DF1BD692A50018384E /* Data */,
+			);
+			path = BroncoXpress;
+			sourceTree = "<group>";
+		};
+		C1F94C611BD1632100301771 /* BroncoXpressTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1F94C621BD1632100301771 /* BroncoXpressTests.swift */,
+				C1F94C641BD1632100301771 /* Info.plist */,
+			);
+			path = BroncoXpressTests;
+			sourceTree = "<group>";
+		};
+		C1F94C6C1BD1632100301771 /* BroncoXpressUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C1F94C6D1BD1632100301771 /* BroncoXpressUITests.swift */,
+				C1F94C6F1BD1632100301771 /* Info.plist */,
+			);
+			path = BroncoXpressUITests;
+			sourceTree = "<group>";
+		};
+		C1F94CA41BD1657600301771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */,
+				C1F94CA21BD1656F00301771 /* Social.framework */,
+				C1F94CA01BD1656400301771 /* Accounts.framework */,
+				C1F94C9E1BD1647D00301771 /* libsqlite3.tbd */,
+				C1F94C9C1BD1647100301771 /* libz.tbd */,
+				C1F94C951BD1641200301771 /* SystemConfiguration.framework */,
+				C1F94C931BD1640300301771 /* StoreKit.framework */,
+				C1F94C911BD163F900301771 /* Security.framework */,
+				C1F94C8F1BD163ED00301771 /* QuartzCore.framework */,
+				C1F94C8D1BD163E400301771 /* CoreGraphics.framework */,
+				C1F94C8B1BD163D900301771 /* CFNetwork.framework */,
+				C1F94C891BD163CF00301771 /* AudioToolbox.framework */,
+				C1F94C7B1BD1639800301771 /* Bolts.framework */,
+				C1F94C7C1BD1639800301771 /* Parse.framework */,
+				C1F94C7D1BD1639800301771 /* ParseCrashReporting.framework */,
+				C1F94C7E1BD1639800301771 /* ParseFacebookUtils.framework */,
+				C1F94C7F1BD1639800301771 /* ParseFacebookUtilsV4.framework */,
+				C1F94C801BD1639800301771 /* ParseTwitterUtils.framework */,
+				C1F94C811BD1639800301771 /* ParseUI.framework */,
+				DEEA934BE76E1226CBC178AA /* Pods_BroncoXpress.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1F94C491BD1632000301771 /* BroncoXpress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F94C721BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpress" */;
+			buildPhases = (
+				81EC330DA3DE5788E9BDB51E /* Check Pods Manifest.lock */,
+				C1F94C461BD1632000301771 /* Sources */,
+				C1F94C471BD1632000301771 /* Frameworks */,
+				C1F94C481BD1632000301771 /* Resources */,
+				DEFA517DF73E5DB0650800B9 /* Embed Pods Frameworks */,
+				DE518A2C7DC550FDB359979A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BroncoXpress;
+			productName = BroncoXpress;
+			productReference = C1F94C4A1BD1632000301771 /* BroncoXpress.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1F94C5D1BD1632100301771 /* BroncoXpressTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F94C751BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpressTests" */;
+			buildPhases = (
+				C1F94C5A1BD1632100301771 /* Sources */,
+				C1F94C5B1BD1632100301771 /* Frameworks */,
+				C1F94C5C1BD1632100301771 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1F94C601BD1632100301771 /* PBXTargetDependency */,
+			);
+			name = BroncoXpressTests;
+			productName = BroncoXpressTests;
+			productReference = C1F94C5E1BD1632100301771 /* BroncoXpressTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C1F94C681BD1632100301771 /* BroncoXpressUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F94C781BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpressUITests" */;
+			buildPhases = (
+				C1F94C651BD1632100301771 /* Sources */,
+				C1F94C661BD1632100301771 /* Frameworks */,
+				C1F94C671BD1632100301771 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1F94C6B1BD1632100301771 /* PBXTargetDependency */,
+			);
+			name = BroncoXpressUITests;
+			productName = BroncoXpressUITests;
+			productReference = C1F94C691BD1632100301771 /* BroncoXpressUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1F94C421BD1632000301771 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Hetal Sakaria";
+				TargetAttributes = {
+					C1F94C491BD1632000301771 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					C1F94C5D1BD1632100301771 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = C1F94C491BD1632000301771;
+					};
+					C1F94C681BD1632100301771 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = C1F94C491BD1632000301771;
+					};
+				};
+			};
+			buildConfigurationList = C1F94C451BD1632000301771 /* Build configuration list for PBXProject "BroncoXpress" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1F94C411BD1632000301771;
+			productRefGroup = C1F94C4B1BD1632000301771 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1F94C491BD1632000301771 /* BroncoXpress */,
+				C1F94C5D1BD1632100301771 /* BroncoXpressTests */,
+				C1F94C681BD1632100301771 /* BroncoXpressUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1F94C481BD1632000301771 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F94C551BD1632000301771 /* Assets.xcassets in Resources */,
+				C1F94C531BD1632000301771 /* Main.storyboard in Resources */,
+				C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C5C1BD1632100301771 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C671BD1632100301771 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81EC330DA3DE5788E9BDB51E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE518A2C7DC550FDB359979A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BroncoXpress/Pods-BroncoXpress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEFA517DF73E5DB0650800B9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BroncoXpress/Pods-BroncoXpress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1F94C461BD1632000301771 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1901E1C1BD6287800BB4887 /* StopsTableViewController.swift in Sources */,
+				C155F1DE1BD692960018384E /* DataManager.swift in Sources */,
+				C1F94C501BD1632000301771 /* ViewController.swift in Sources */,
+				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
+				C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */,
+				C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */,
+				C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C5A1BD1632100301771 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F94C631BD1632100301771 /* BroncoXpressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F94C651BD1632100301771 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F94C6E1BD1632100301771 /* BroncoXpressUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1F94C601BD1632100301771 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1F94C491BD1632000301771 /* BroncoXpress */;
+			targetProxy = C1F94C5F1BD1632100301771 /* PBXContainerItemProxy */;
+		};
+		C1F94C6B1BD1632100301771 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1F94C491BD1632000301771 /* BroncoXpress */;
+			targetProxy = C1F94C6A1BD1632100301771 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C1F94C511BD1632000301771 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1F94C521BD1632000301771 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1F94C701BD1632100301771 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1F94C711BD1632100301771 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1F94C731BD1632100301771 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED224D8F9D76460D54DAB6B6 /* Pods-BroncoXpress.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = BroncoXpress/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BroncoXpress-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1F94C741BD1632100301771 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C27833682DE3476EA86F278 /* Pods-BroncoXpress.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = BroncoXpress/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BroncoXpress-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		C1F94C761BD1632100301771 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BroncoXpressTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BroncoXpress.app/BroncoXpress";
+			};
+			name = Debug;
+		};
+		C1F94C771BD1632100301771 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BroncoXpressTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BroncoXpress.app/BroncoXpress";
+			};
+			name = Release;
+		};
+		C1F94C791BD1632100301771 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BroncoXpressUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BroncoXpress;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C1F94C7A1BD1632100301771 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BroncoXpressUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.BroncoXpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BroncoXpress;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1F94C451BD1632000301771 /* Build configuration list for PBXProject "BroncoXpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F94C701BD1632100301771 /* Debug */,
+				C1F94C711BD1632100301771 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F94C721BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F94C731BD1632100301771 /* Debug */,
+				C1F94C741BD1632100301771 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F94C751BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpressTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F94C761BD1632100301771 /* Debug */,
+				C1F94C771BD1632100301771 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F94C781BD1632100301771 /* Build configuration list for PBXNativeTarget "BroncoXpressUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F94C791BD1632100301771 /* Debug */,
+				C1F94C7A1BD1632100301771 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1F94C421BD1632000301771 /* Project object */;
+}
