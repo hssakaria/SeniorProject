@@ -19,19 +19,15 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     
     var route = String()
     
-    var colorGreen = UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0)
-    var colorBlue = UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
-    var colorRed = UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
-    var colorPurple = UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
-    
-    //    @IBOutlet var tableView: UITableView!
+    var colorGreen  =    UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0)
+    var colorRed    =    UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+    var colorBlue   =    UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
+    var colorPurple =    UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
     
     override func viewDidLoad() {
-        
-        
+   
         super.viewDidLoad()
         parseJSON()
-        
         
     }
     
@@ -54,7 +50,6 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
                 
                 //                        print(json.arrayValue) // display json file
                 getJSONData(json)
-                //                tableView.reloadData()
                 
             } else{
                 showError()
@@ -125,26 +120,26 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell")
         
         
         /********************************************************************
         Cell text color assigned to green and blue
         if index row = even no then the text color will be green else blue
         *********************************************************************/
-        if indexPath.row % 2 == 0 {
+        if indexPath.row == 1 {
             cell?.textLabel?.textColor = colorGreen
         }
-        else if indexPath.row % 3 == 0{
+        else if indexPath.row == 2{
             cell?.textLabel?.textColor = colorPurple
             
         }
-        else if indexPath.row % 5 == 0{
-            cell?.textLabel?.textColor = colorRed
+        else if indexPath.row  == 3{
+            cell?.textLabel?.textColor = colorBlue
             
         }
         else{
-            cell?.textLabel?.textColor = colorBlue
+            cell?.textLabel?.textColor = colorRed
         }
         
         
@@ -167,27 +162,35 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         
         route = routesArray[indexPath.row]
         
+        let stopsViewController: StopsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RouteStops2") as! StopsViewController
         
-        let stopsViewController: StopsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RouteStops") as! StopsViewController
-        self.presentViewController(stopsViewController, animated: true, completion: nil)
         
-        // self.navigationController?.pushViewController(stopsViewController, animated: true)
         
-        stopsViewController.currentRoute = route
+        stopsViewController.currentRoute  = route
         
     }
     
     /**************************************************************************************
     Selected cell's contect gets passed to StopsViewController as a currentRoute.
     ***************************************************************************************/
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        if segue.identifier == "routeStopSegue"{
-    //
-    //            let controller = segue.destinationViewController as! StopsViewController
-    //            controller.currentRoute = route
-    //
-    //        }
-    //    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier == "routeStopsSegue"{
+            
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPathForCell(cell){
+                
+                
+                let controller = segue.destinationViewController as! StopsViewController
+                
+                controller.currentRoute = routesArray[indexPath.row]
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                
+            }
+        }
+    }
     
     
 }

@@ -11,7 +11,6 @@
 		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; settings = {ASSET_TAGS = (); }; };
 		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C155F1DE1BD692960018384E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F1DD1BD692960018384E /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
-		C17EB3FC1BDEF74300556CC5 /* BusStopsCustomTableViewCell in Sources */ = {isa = PBXBuildFile; fileRef = C17EB3FB1BDEF74300556CC5 /* BusStopsCustomTableViewCell */; settings = {ASSET_TAGS = (); }; };
 		C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */; settings = {ASSET_TAGS = (); }; };
 		C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4D1BD1632000301771 /* AppDelegate.swift */; };
@@ -65,7 +64,6 @@
 		C129301F1BDC4A9700064AD3 /* Jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jsonfile.json; sourceTree = "<group>"; };
 		C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; tabWidth = 6; usesTabs = 1; };
 		C155F1DD1BD692960018384E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		C17EB3FB1BDEF74300556CC5 /* BusStopsCustomTableViewCell */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BusStopsCustomTableViewCell; sourceTree = "<group>"; };
 		C1901E1B1BD6287800BB4887 /* StopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
 		C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesController.swift; sourceTree = "<group>"; };
 		C1F94C4A1BD1632000301771 /* BroncoXpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BroncoXpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,7 +195,6 @@
 				C1F94C511BD1632000301771 /* Main.storyboard */,
 				C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */,
 				C1901E1B1BD6287800BB4887 /* StopsViewController.swift */,
-				C17EB3FB1BDEF74300556CC5 /* BusStopsCustomTableViewCell */,
 				C1F94C4F1BD1632000301771 /* ViewController.swift */,
 				C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */,
 				C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */,
@@ -439,7 +436,6 @@
 				C155F1DE1BD692960018384E /* DataManager.swift in Sources */,
 				C1F94C501BD1632000301771 /* ViewController.swift in Sources */,
 				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
-				C17EB3FC1BDEF74300556CC5 /* BusStopsCustomTableViewCell in Sources */,
 				C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */,
 				C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */,
 				C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */,

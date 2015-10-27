@@ -12,89 +12,101 @@
 import Foundation
 import UIKit
 import SwiftyJSON
-//
-//class StopsViewController
-//: UITableViewController{
-//
 
-class StopsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+
+class StopsViewController: UITableViewController{
     
-    @IBOutlet weak var stopsTableView: UITableView!
+    @IBOutlet var currentRouteName: UINavigationItem!
+    @IBOutlet var busStopsTableView: UITableView!
     
-    
-    @IBOutlet var RouteName: UILabel!
     var currentRoute: String?
-    
     var busStopsArray = [String]()
-    var numberOfRows2 = 0
+    var numberOfRows = 0
     var stopName = String()
+    var busStopsUrl = String()
     
     var colorGreen = UIColor(red: 0.1333, green: 0.4275, blue: 0, alpha: 1.0)
     var colorBlue = UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
     var colorRed = UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
     var colorPurple = UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
+    var colorBlack = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
     
     
     override func viewDidLoad() {
         
-        
-        self.RouteName.text = currentRoute
-        
-        stopsTableView.delegate = self
-        stopsTableView.dataSource = self
-        
-        
-        print(currentRoute)
+        self.currentRouteName.title = currentRoute
         
         parseJSON()
         
     }
     
     
-    
-    
     func parseJSON(){
         
-        let urlRouteB1 = "http://www.broncoshuttle.com/Route/3166/Direction/0/Stops"
         
-        if let url = NSURL(string: urlRouteB1){
+        let query = PFQuery(className: "BusStopsURL")
+        query.whereKey("Routes", equalTo: currentRoute!)
+        
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                print("Successfully retrieved: \(objects)")
+                
+                for object in objects!{
+                    
+                    self.busStopsUrl = object["Url"] as! String
+                    
+                    self.passURLtoJSON(self.busStopsUrl)
+                    
+                }
+                
+            } else {
+                print("Error: \(error) \(error!.userInfo)")
+            }
+        }
+        
+    }
+    
+    /**************************************************************************************
+    
+    ***************************************************************************************/
+    
+    func passURLtoJSON(RouteUrl: String){
+        
+        if let url = NSURL(string: RouteUrl){
             
             if let data =  try? NSData(contentsOfURL: url, options: []){
                 
                 let json = JSON(data: data)
                 
-                getJSONData(json)
+                self.getJSONData(json)
             }
             else{
                 
                 NSLog("Couldnt load Bus Stops data")
-                // show error
             }
             
+            busStopsTableView.reloadData()
             
-             self.stopsTableView.reloadData()
         }
         
     }
-    
     /**************************************************************************************
     
     ***************************************************************************************/
-    
     
     func getJSONData(json: JSON){
         
         var busStopsName = String()
         
-        
         for busStops in json.arrayValue {
             
             busStopsName = busStops["Name"].stringValue
             busStopsArray.append(busStopsName)
-            numberOfRows2 = busStopsArray.count
+            numberOfRows = busStopsArray.count
         }
         
-        print(busStopsArray)
+//        print(busStopsArray)
         
     }
     
@@ -102,39 +114,36 @@ class StopsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     ***************************************************************************************/
     
-    func tableView(stopsTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(stopsTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("numberOfRows2")
-        
-        
-        return numberOfRows2
+        return numberOfRows
     }
     
     /**************************************************************************************
-    
+     Fill the table cell and assigned a color depending on their route name.
     ***************************************************************************************/
     
-    func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = stopsTableView.dequeueReusableCellWithIdentifier("BusStopsCell")
         
-        /********************************************************************
-        Cell text color assigned to green and blue
-        if index row = even no then the text color will be green else blue
-        *********************************************************************/
-        if indexPath.row % 2 == 0 {
-            cell!.textLabel?.textColor = colorGreen
+        if currentRoute == "Route A"{
+            cell?.textLabel?.textColor = colorRed
         }
-        else if indexPath.row % 3 == 0{
+        else if currentRoute == "Route B1 "{
+            cell?.textLabel?.textColor = colorGreen
+        }
+        else if currentRoute == "Route B2"{
             cell?.textLabel?.textColor = colorPurple
-
+        }
+        else if currentRoute == "Route C"{
+            cell?.textLabel?.textColor = colorBlue
         }
         else{
-            cell!.textLabel?.textColor = colorBlue
+            cell?.textLabel?.textColor = colorBlack
         }
         
-        
-        /********************************************************************
+               /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
         
@@ -142,19 +151,17 @@ class StopsViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             cell!.textLabel?.text  = busStopsArray[indexPath.row]
         }
-        return cell!        
+        return cell!
     }
     
     
     /**************************************************************************************
     On touch, it will dismiss the currentViewController and go back to RoutesViewController
     ***************************************************************************************/
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
     
 }
 
