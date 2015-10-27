@@ -5,6 +5,10 @@
 //  Created by Hetal Sakaria on 10/14/15.
 //  Copyright © 2015 Hetal Sakaria. All rights reserved.
 //
+/**************************************************************************************
+
+***************************************************************************************/
+
 
 import UIKit
 import MapKit
@@ -16,7 +20,7 @@ class LiveMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var Map: MKMapView!
     
-    var color = UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0)
+    var colorGreen = UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0)
     
     let beaconRegion =
     CLBeaconRegion(proximityUUID: NSUUID(
@@ -59,12 +63,17 @@ class LiveMapViewController: UIViewController, CLLocationManagerDelegate {
     //            60822: UIWebView(frame: <#T##CGRect#>)
     //        ]
     //
+    
+    /**************************************************************************************
+    
+    ***************************************************************************************/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         locationManager.delegate = self
-        self.navigationController?.navigationBar.tintColor = color
+        self.navigationController?.navigationBar.tintColor = colorGreen
         
         
         let location = CLLocationCoordinate2DMake(34.050893,117.820734)
@@ -94,10 +103,19 @@ class LiveMapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    /**************************************************************************************
+    
+    ***************************************************************************************/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /**************************************************************************************
+    
+    ***************************************************************************************/
+    
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons:
         [CLBeacon], inRegion region: CLBeaconRegion) {
