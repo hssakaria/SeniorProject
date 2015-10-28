@@ -30,6 +30,16 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         parseJSON()
         
     }
+    override func viewWillAppear(animated: Bool) {
+        
+            //        super.viewWillAppear(animated)
+            let nav = self.navigationController?.navigationBar
+            nav?.barStyle = UIBarStyle.BlackOpaque
+            
+            nav?.titleTextAttributes = [NSForegroundColorAttributeName: colorBlue]
+            nav?.tintColor = UIColor.whiteColor()
+
+    }
     
     /**************************************************************************************
     
@@ -121,8 +131,10 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell")
-        
-        
+//
+//        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath) as! BusArrivalTimeTableViewCell
+//        
+//        
         /********************************************************************
         Cell text color assigned to green and blue
         if index row = even no then the text color will be green else blue
@@ -141,7 +153,23 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         else{
             cell?.textLabel?.textColor = colorRed
         }
-        
+//
+//        if indexPath.row == 1 {
+//            cell.textLabel?.textColor = colorGreen
+//        }
+//        else if indexPath.row == 2{
+//            cell.textLabel?.textColor = colorPurple
+//            
+//        }
+//        else if indexPath.row  == 3{
+//            cell.textLabel?.textColor = colorBlue
+//            
+//        }
+//        else{
+//            cell.textLabel?.textColor = colorRed
+//        }
+//        
+
         
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
@@ -162,7 +190,7 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         
         route = routesArray[indexPath.row]
         
-        let stopsViewController: StopsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RouteStops2") as! StopsViewController
+        let stopsViewController: StopsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RouteStopsSBID") as! StopsViewController
         
         
         

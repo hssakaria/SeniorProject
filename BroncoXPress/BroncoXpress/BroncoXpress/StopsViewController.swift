@@ -18,7 +18,9 @@ class StopsViewController: UITableViewController{
     
     @IBOutlet var currentRouteName: UINavigationItem!
     @IBOutlet var busStopsTableView: UITableView!
+    var selectedIndexPath: NSIndexPath?
     
+    @IBOutlet var busStopsNavigationBar: UINavigationItem!
     var currentRoute: String?
     var busStopsArray = [String]()
     var numberOfRows = 0
@@ -37,6 +39,41 @@ class StopsViewController: UITableViewController{
         self.currentRouteName.title = currentRoute
         
         parseJSON()
+        
+    }
+    /**************************************************************************************
+    This function will change the navigation bar background color and text color.
+    ***************************************************************************************/
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        //        super.viewWillAppear(animated)
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.BlackOpaque
+        
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav?.tintColor = UIColor.whiteColor()
+        let currentTitle: String = currentRouteName.title!
+        
+        
+        if currentTitle == "Route A"{
+            nav?.barTintColor = colorRed
+            
+        }
+        else if currentRoute == "Route B1 "{
+            nav?.barTintColor = colorGreen
+        }
+        else if currentRoute == "Route B2"{
+            nav?.barTintColor = colorPurple
+        }
+        else if currentRoute == "Route C"{
+            nav?.barTintColor = colorBlue
+        }
+        else{
+            nav?.barTintColor = colorBlack
+            
+        }
+        
         
     }
     
@@ -106,7 +143,7 @@ class StopsViewController: UITableViewController{
             numberOfRows = busStopsArray.count
         }
         
-//        print(busStopsArray)
+        //        print(busStopsArray)
         
     }
     
@@ -120,30 +157,31 @@ class StopsViewController: UITableViewController{
     }
     
     /**************************************************************************************
-     Fill the table cell and assigned a color depending on their route name.
+    Fill the table cell and assigned a color depending on their route name.
     ***************************************************************************************/
     
     override func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = stopsTableView.dequeueReusableCellWithIdentifier("BusStopsCell")
+        cell?.textLabel?.textColor = colorBlack
         
-        if currentRoute == "Route A"{
-            cell?.textLabel?.textColor = colorRed
-        }
-        else if currentRoute == "Route B1 "{
-            cell?.textLabel?.textColor = colorGreen
-        }
-        else if currentRoute == "Route B2"{
-            cell?.textLabel?.textColor = colorPurple
-        }
-        else if currentRoute == "Route C"{
-            cell?.textLabel?.textColor = colorBlue
-        }
-        else{
-            cell?.textLabel?.textColor = colorBlack
-        }
-        
-               /********************************************************************
+        //        if currentRoute == "Route A"{
+        //            cell?.textLabel?.textColor = colorRed
+        //        }
+        //        else if currentRoute == "Route B1 "{
+        //            cell?.textLabel?.textColor = colorGreen
+        //        }
+        //        else if currentRoute == "Route B2"{
+        //            cell?.textLabel?.textColor = colorPurple
+        //        }
+        //        else if currentRoute == "Route C"{
+        //            cell?.textLabel?.textColor = colorBlue
+        //        }
+        //        else{
+        //            cell?.textLabel?.textColor = colorBlack
+        //        }
+        //
+        /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
         
@@ -154,14 +192,75 @@ class StopsViewController: UITableViewController{
         return cell!
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        stopName = busStopsArray[indexPath.row]
+        let busArrivalTableViewController: BusArrivalTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BusArrivalSBID") as! BusArrivalTableViewController
+        
+        busArrivalTableViewController.currentStop = stopName
+        
+//        let previousIndexPath = selectedIndexPath
+//        if indexPath == selectedIndexPath {
+//            
+//            selectedIndexPath = nil
+//        } else{
+//            selectedIndexPath = indexPath
+//        }
+//        
+//        var indexPaths: Array<NSIndexPath> = []
+//        if let previous = previousIndexPath{
+//            indexPaths += [previous]
+//        }
+//        
+//        if indexPaths.count > 0 {
+//            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+//        }
+//        
+        
+        
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "busArrivalSegue" {
+            
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+                
+                let arrivalController = segue.destinationViewController as! BusArrivalTableViewController
+                arrivalController.currentStop = busStopsArray[indexPath.row]
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+            
+            
+            
+        }
+            
+    }
+    
+    //    override  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    //        (cell as! BusArrivalTimeTableViewCell).watchFrameChanges()
+    //    }
+    //
+    //    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    //        (cell as! BusArrivalTimeTableViewCell).ignoreFrameChanges()
+    //    }
+    //
+    //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        if indexPath == selectedIndexPath{
+    //            return BusArrivalTimeTableViewCell.expendedHight
+    //        }else{
+    //            return BusArrivalTimeTableViewCell.defaultHight
+    //        }
+    //    }
     /**************************************************************************************
     On touch, it will dismiss the currentViewController and go back to RoutesViewController
     ***************************************************************************************/
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
+    //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    //
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //    }
     
 }
 

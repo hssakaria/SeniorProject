@@ -86,148 +86,6 @@
             </objects>
             <point key="canvasLocation" x="1153" y="349"/>
         </scene>
-        <!--RouteStopsViewController-->
-        <scene sceneID="Qeu-zV-HJz">
-            <objects>
-                <viewController storyboardIdentifier="RouteStops" title="RouteStopsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="erY-c6-Mfq" customClass="StopsViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ACX-h8-Ipz"/>
-                        <viewControllerLayoutGuide type="bottom" id="fO4-9E-2jc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oS5-Mt-UmB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="spatial" restorationIdentifier="Cell" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J2Q-RZ-oAd">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <color key="sectionIndexColor" red="0.050980396570000003" green="0.19215688110000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BusStops" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusStopsCell" textLabel="e5S-mq-sm1" rowHeight="37" style="IBUITableViewCellStyleDefault" id="U6I-Bq-DgX">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U6I-Bq-DgX" id="qrp-Bh-AsH">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="36.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e5S-mq-sm1">
-                                                    <rect key="frame" x="15" y="0.0" width="210" height="36.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="10"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="126" width="414" height="610"/>
-                                </variation>
-                            </tableView>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq7-Tb-Fzg">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.75159424543380737" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.060251779854297638" green="0.0072288536466658115" blue="0.98958271741867065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.050980396570000003" green="0.19215688110000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="highlightedColor" red="0.92925262451171875" green="0.9245491623878479" blue="0.97833555936813354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="414" height="65"/>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="J2Q-RZ-oAd"/>
-                                <exclude reference="wq7-Tb-Fzg"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="J2Q-RZ-oAd"/>
-                                <include reference="wq7-Tb-Fzg"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Bus Stops" id="X7U-nB-4Ml">
-                        <barButtonItem key="backBarButtonItem" title="BusStops" id="YEq-Yh-vcl"/>
-                    </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <connections>
-                        <outlet property="stopsTableView" destination="J2Q-RZ-oAd" id="rnc-wF-let"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff0-ng-Ujg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3325.5" y="1059"/>
-        </scene>
-        <!--Routes-->
-        <scene sceneID="ekl-Fe-ivz">
-            <objects>
-                <tableViewController id="e6Z-DZ-Crc" customClass="RoutesTableViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mkb-WC-hKw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationLevel="5" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="VbT-v7-YAi" rowHeight="49" style="IBUITableViewCellStyleDefault" id="Vyx-Qx-jty" customClass="PFTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vyx-Qx-jty" id="ODq-uc-ft6">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="48.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VbT-v7-YAi">
-                                            <rect key="frame" x="15" y="0.0" width="364" height="48.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            </variation>
-                                        </label>
-                                    </subviews>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                                <inset key="separatorInset" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="e6Z-DZ-Crc" id="h95-lt-psN"/>
-                            <outlet property="delegate" destination="e6Z-DZ-Crc" id="1cX-bv-tnF"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Routes" id="WMN-IV-U1e">
-                        <barButtonItem key="backBarButtonItem" title="Routes" id="2AS-v0-LYD"/>
-                    </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a9l-AT-ma9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3430.5" y="258"/>
-        </scene>
         <!--Routes-->
         <scene sceneID="Z4u-lI-rH2">
             <objects>
@@ -275,25 +133,28 @@
             </objects>
             <point key="canvasLocation" x="1920" y="754"/>
         </scene>
-        <!--Bus Stops-->
+        <!--Current Route-->
         <scene sceneID="I70-Gn-pwT">
             <objects>
-                <tableViewController storyboardIdentifier="RouteStops2" modalPresentationStyle="currentContext" id="ZTg-6M-Sf9" customClass="StopsViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RouteStopsSBID" modalPresentationStyle="currentContext" id="ZTg-6M-Sf9" customClass="StopsViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="center" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="29" sectionFooterHeight="28" id="BVy-8v-9Ce">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="detailButton" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="20" id="gbe-uL-7gs">
-                                <rect key="frame" x="0.0" y="114" width="600" height="20"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="detailButton" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="100" id="gbe-uL-7gs">
+                                <rect key="frame" x="0.0" y="93" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbe-uL-7gs" id="StM-x7-Lsx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="19.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="367" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="eyH-E8-mIW" kind="show" identifier="busArrivalSegue" animates="NO" id="Oam-cz-hmT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -301,7 +162,7 @@
                             <outlet property="delegate" destination="ZTg-6M-Sf9" id="wwK-W1-D1H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bus Stops" id="Jeg-dK-dKn">
+                    <navigationItem key="navigationItem" title="Current Route" id="Jeg-dK-dKn">
                         <barButtonItem key="backBarButtonItem" title="Stops" id="dg0-ZD-n3A"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -314,6 +175,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Maa-19-u17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2619" y="754"/>
+        </scene>
+        <!--BusArrivalSchedual-->
+        <scene sceneID="Md8-lz-K7k">
+            <objects>
+                <tableViewController storyboardIdentifier="BusArrivalSBID" id="eyH-E8-mIW" userLabel="BusArrivalSchedual" customClass="BusArrivalTableViewController" customModule="BroncoXpress" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="196" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q3-6q-VD6">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusArrivalCell" rowHeight="196" id="0NU-Ea-o6O">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0NU-Ea-o6O" id="W8n-Hd-1R8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eyH-E8-mIW" id="2eP-hl-dio"/>
+                            <outlet property="delegate" destination="eyH-E8-mIW" id="nz5-Lo-K5E"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Arrival Schedual" id="QVK-uy-T7S"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <connections>
+                        <outlet property="busArrivalTableView" destination="3Q3-6q-VD6" id="Jk7-Ib-2nr"/>
+                        <outlet property="currentStopName" destination="QVK-uy-T7S" id="a4r-2C-1Gb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubk-JE-xB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3355.5" y="754"/>
         </scene>
         <!--Live Map-->
         <scene sceneID="1pp-o9-bWV">

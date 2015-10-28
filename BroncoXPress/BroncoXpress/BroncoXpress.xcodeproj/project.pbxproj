@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C129301C1BDC3FA000064AD3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */; };
 		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; settings = {ASSET_TAGS = (); }; };
+		C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C155F1DE1BD692960018384E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F1DD1BD692960018384E /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -62,6 +63,7 @@
 		4C27833682DE3476EA86F278 /* Pods-BroncoXpress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroncoXpress.release.xcconfig"; path = "Pods/Target Support Files/Pods-BroncoXpress/Pods-BroncoXpress.release.xcconfig"; sourceTree = "<group>"; };
 		C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		C129301F1BDC4A9700064AD3 /* Jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jsonfile.json; sourceTree = "<group>"; };
+		C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusArrivalTableViewController.swift; sourceTree = "<group>"; };
 		C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; tabWidth = 6; usesTabs = 1; };
 		C155F1DD1BD692960018384E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C1901E1B1BD6287800BB4887 /* StopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
@@ -189,12 +191,13 @@
 		C1F94C4C1BD1632000301771 /* BroncoXpress */ = {
 			isa = PBXGroup;
 			children = (
+				C1F94C511BD1632000301771 /* Main.storyboard */,
 				C1F94CA51BD165F300301771 /* BroncoXpress-Bridging-Header.h */,
 				C129301F1BDC4A9700064AD3 /* Jsonfile.json */,
 				C1F94C4D1BD1632000301771 /* AppDelegate.swift */,
-				C1F94C511BD1632000301771 /* Main.storyboard */,
 				C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */,
 				C1901E1B1BD6287800BB4887 /* StopsViewController.swift */,
+				C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */,
 				C1F94C4F1BD1632000301771 /* ViewController.swift */,
 				C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */,
 				C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */,
@@ -436,6 +439,7 @@
 				C155F1DE1BD692960018384E /* DataManager.swift in Sources */,
 				C1F94C501BD1632000301771 /* ViewController.swift in Sources */,
 				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
+				C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */,
 				C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */,
 				C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */,
 				C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */,
