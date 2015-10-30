@@ -8,25 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C129301C1BDC3FA000064AD3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */; };
-		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; settings = {ASSET_TAGS = (); }; };
-		C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C155F1DE1BD692960018384E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F1DD1BD692960018384E /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
-		C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */; settings = {ASSET_TAGS = (); }; };
+		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; };
+		C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */; };
+		C12949341BE276EA00E39D50 /* LiveRouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949331BE276EA00E39D50 /* LiveRouteMapViewController.swift */; };
+		C12949361BE29F4500E39D50 /* RouteALatiLongJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */; };
+		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; };
+		C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsViewController.swift */; };
+		C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */; };
 		C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4D1BD1632000301771 /* AppDelegate.swift */; };
 		C1F94C501BD1632000301771 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4F1BD1632000301771 /* ViewController.swift */; };
 		C1F94C531BD1632000301771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F94C511BD1632000301771 /* Main.storyboard */; };
 		C1F94C551BD1632000301771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1F94C541BD1632000301771 /* Assets.xcassets */; };
 		C1F94C631BD1632100301771 /* BroncoXpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C621BD1632100301771 /* BroncoXpressTests.swift */; };
 		C1F94C6E1BD1632100301771 /* BroncoXpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C6D1BD1632100301771 /* BroncoXpressUITests.swift */; };
-		C1F94C821BD1639800301771 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7B1BD1639800301771 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C831BD1639800301771 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7C1BD1639800301771 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C841BD1639800301771 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7D1BD1639800301771 /* ParseCrashReporting.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C851BD1639800301771 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7E1BD1639800301771 /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C861BD1639800301771 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7F1BD1639800301771 /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C871BD1639800301771 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C801BD1639800301771 /* ParseTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		C1F94C881BD1639800301771 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C811BD1639800301771 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		C1F94C821BD1639800301771 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7B1BD1639800301771 /* Bolts.framework */; };
+		C1F94C831BD1639800301771 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7C1BD1639800301771 /* Parse.framework */; };
+		C1F94C841BD1639800301771 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7D1BD1639800301771 /* ParseCrashReporting.framework */; };
+		C1F94C851BD1639800301771 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7E1BD1639800301771 /* ParseFacebookUtils.framework */; };
+		C1F94C861BD1639800301771 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C7F1BD1639800301771 /* ParseFacebookUtilsV4.framework */; };
+		C1F94C871BD1639800301771 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C801BD1639800301771 /* ParseTwitterUtils.framework */; };
+		C1F94C881BD1639800301771 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C811BD1639800301771 /* ParseUI.framework */; };
 		C1F94C8A1BD163CF00301771 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C891BD163CF00301771 /* AudioToolbox.framework */; };
 		C1F94C8C1BD163D900301771 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C8B1BD163D900301771 /* CFNetwork.framework */; };
 		C1F94C8E1BD163E400301771 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C8D1BD163E400301771 /* CoreGraphics.framework */; };
@@ -38,7 +39,7 @@
 		C1F94C9F1BD1647D00301771 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94C9E1BD1647D00301771 /* libsqlite3.tbd */; };
 		C1F94CA11BD1656500301771 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94CA01BD1656400301771 /* Accounts.framework */; };
 		C1F94CA31BD1656F00301771 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F94CA21BD1656F00301771 /* Social.framework */; };
-		C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94CA91BD17F2800301771 /* LiveMapViewController.swift */; };
 		CB0BBD42FCFAB83C65B1A6CA /* Pods_BroncoXpress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEA934BE76E1226CBC178AA /* Pods_BroncoXpress.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +65,9 @@
 		C129301B1BDC3FA000064AD3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		C129301F1BDC4A9700064AD3 /* Jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jsonfile.json; sourceTree = "<group>"; };
 		C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusArrivalTableViewController.swift; sourceTree = "<group>"; };
+		C12949331BE276EA00E39D50 /* LiveRouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRouteMapViewController.swift; sourceTree = "<group>"; };
+		C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteALatiLongJSON.swift; sourceTree = "<group>"; };
 		C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; tabWidth = 6; usesTabs = 1; };
-		C155F1DD1BD692960018384E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C1901E1B1BD6287800BB4887 /* StopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
 		C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesController.swift; sourceTree = "<group>"; };
 		C1F94C4A1BD1632000301771 /* BroncoXpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BroncoXpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +163,7 @@
 		C155F1DF1BD692A50018384E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C155F1DD1BD692960018384E /* DataManager.swift */,
+				C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -194,6 +196,7 @@
 				C1F94C511BD1632000301771 /* Main.storyboard */,
 				C1F94CA51BD165F300301771 /* BroncoXpress-Bridging-Header.h */,
 				C129301F1BDC4A9700064AD3 /* Jsonfile.json */,
+				C12949331BE276EA00E39D50 /* LiveRouteMapViewController.swift */,
 				C1F94C4D1BD1632000301771 /* AppDelegate.swift */,
 				C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */,
 				C1901E1B1BD6287800BB4887 /* StopsViewController.swift */,
@@ -436,10 +439,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */,
-				C155F1DE1BD692960018384E /* DataManager.swift in Sources */,
 				C1F94C501BD1632000301771 /* ViewController.swift in Sources */,
+				C12949361BE29F4500E39D50 /* RouteALatiLongJSON.swift in Sources */,
 				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
 				C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */,
+				C12949341BE276EA00E39D50 /* LiveRouteMapViewController.swift in Sources */,
 				C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */,
 				C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */,
 				C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */,

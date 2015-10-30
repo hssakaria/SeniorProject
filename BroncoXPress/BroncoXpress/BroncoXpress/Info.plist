@@ -38,14 +38,12 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detect Beacons</string>
-    <key>NSAppTransportSecurity</key>
-    
-    <dict>
-        
-        <key>NSAllowsArbitraryLoads</key>
-        
-        <true/>
-        
-    </dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -38,6 +38,7 @@ class StopsViewController: UITableViewController{
         
         self.currentRouteName.title = currentRoute
         
+        
         parseJSON()
         
     }
@@ -230,6 +231,7 @@ class StopsViewController: UITableViewController{
                 
                 let arrivalController = segue.destinationViewController as! BusArrivalTableViewController
                 arrivalController.currentStop = busStopsArray[indexPath.row]
+                arrivalController.currentRoute = currentRoute
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
             
