@@ -39,16 +39,22 @@ class StopsViewController: UITableViewController{
         self.currentRouteName.title = currentRoute
         
         
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         parseJSON()
         
     }
     /**************************************************************************************
-    This function will change the navigation bar background color and text color.
-    ***************************************************************************************/
+     This function will change the navigation bar background color and text color.
+     ***************************************************************************************/
     
     override func viewWillAppear(animated: Bool) {
         
-        //        super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.BlackOpaque
         
@@ -106,8 +112,8 @@ class StopsViewController: UITableViewController{
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     func passURLtoJSON(RouteUrl: String){
         
@@ -130,8 +136,8 @@ class StopsViewController: UITableViewController{
         
     }
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     func getJSONData(json: JSON){
         
@@ -149,8 +155,8 @@ class StopsViewController: UITableViewController{
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     override func tableView(stopsTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -158,30 +164,14 @@ class StopsViewController: UITableViewController{
     }
     
     /**************************************************************************************
-    Fill the table cell and assigned a color depending on their route name.
-    ***************************************************************************************/
+     Fill the table cell and assigned a color depending on their route name.
+     ***************************************************************************************/
     
     override func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = stopsTableView.dequeueReusableCellWithIdentifier("BusStopsCell")
         cell?.textLabel?.textColor = colorBlack
         
-        //        if currentRoute == "Route A"{
-        //            cell?.textLabel?.textColor = colorRed
-        //        }
-        //        else if currentRoute == "Route B1 "{
-        //            cell?.textLabel?.textColor = colorGreen
-        //        }
-        //        else if currentRoute == "Route B2"{
-        //            cell?.textLabel?.textColor = colorPurple
-        //        }
-        //        else if currentRoute == "Route C"{
-        //            cell?.textLabel?.textColor = colorBlue
-        //        }
-        //        else{
-        //            cell?.textLabel?.textColor = colorBlack
-        //        }
-        //
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
@@ -199,24 +189,6 @@ class StopsViewController: UITableViewController{
         let busArrivalTableViewController: BusArrivalTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BusArrivalSBID") as! BusArrivalTableViewController
         
         busArrivalTableViewController.currentStop = stopName
-        
-//        let previousIndexPath = selectedIndexPath
-//        if indexPath == selectedIndexPath {
-//            
-//            selectedIndexPath = nil
-//        } else{
-//            selectedIndexPath = indexPath
-//        }
-//        
-//        var indexPaths: Array<NSIndexPath> = []
-//        if let previous = previousIndexPath{
-//            indexPaths += [previous]
-//        }
-//        
-//        if indexPaths.count > 0 {
-//            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
-//        }
-//        
         
         
     }
@@ -238,31 +210,8 @@ class StopsViewController: UITableViewController{
             
             
         }
-            
+        
     }
-    
-    //    override  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //        (cell as! BusArrivalTimeTableViewCell).watchFrameChanges()
-    //    }
-    //
-    //    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //        (cell as! BusArrivalTimeTableViewCell).ignoreFrameChanges()
-    //    }
-    //
-    //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    //        if indexPath == selectedIndexPath{
-    //            return BusArrivalTimeTableViewCell.expendedHight
-    //        }else{
-    //            return BusArrivalTimeTableViewCell.defaultHight
-    //        }
-    //    }
-    /**************************************************************************************
-    On touch, it will dismiss the currentViewController and go back to RoutesViewController
-    ***************************************************************************************/
-    //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    //
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //    }
     
 }
 

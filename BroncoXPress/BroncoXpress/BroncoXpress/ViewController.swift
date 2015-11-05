@@ -34,13 +34,13 @@ class ViewController: UIViewController {
         
         
         
-        /* Navigation Bar Style */
-        let nav = self.navigationController?.navigationBar
-        nav?.barStyle = UIBarStyle.BlackOpaque
-        
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.greenColor()]
-        nav?.tintColor = UIColor.whiteColor()
-   
+//        /* Navigation Bar Style */
+//        let nav = self.navigationController?.navigationBar
+//        nav?.barStyle = UIBarStyle.BlackOpaque
+//        
+//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.greenColor()]
+//        nav?.tintColor = UIColor.whiteColor()
+//   
         /* For Animated welcome bronco xpress */
         
         welcomeLabel.center.x = self.view.frame.width + 30
@@ -62,6 +62,20 @@ class ViewController: UIViewController {
         
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        /* Navigation Bar Style */
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.BlackOpaque
+        
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav?.tintColor = UIColor.whiteColor()
+        
+    }
+
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

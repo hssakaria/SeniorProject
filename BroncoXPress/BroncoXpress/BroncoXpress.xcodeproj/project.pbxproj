@@ -11,8 +11,11 @@
 		C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = C129301F1BDC4A9700064AD3 /* Jsonfile.json */; };
 		C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */; };
 		C12949341BE276EA00E39D50 /* LiveRouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949331BE276EA00E39D50 /* LiveRouteMapViewController.swift */; };
-		C12949361BE29F4500E39D50 /* RouteALatiLongJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */; };
 		C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */; };
+		C14B9C301BE9BD8F00B3BC7D /* RouteAInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C2F1BE9BD8F00B3BC7D /* RouteAInfo.plist */; };
+		C14B9C321BE9BE6400B3BC7D /* RouteB1Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C311BE9BE6400B3BC7D /* RouteB1Info.plist */; };
+		C14B9C341BE9BEA600B3BC7D /* RouteB2Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C331BE9BEA600B3BC7D /* RouteB2Info.plist */; };
+		C14B9C361BE9BEF200B3BC7D /* RouteCInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C351BE9BEF200B3BC7D /* RouteCInfo.plist */; };
 		C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1901E1B1BD6287800BB4887 /* StopsViewController.swift */; };
 		C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */; };
 		C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F94C4D1BD1632000301771 /* AppDelegate.swift */; };
@@ -66,8 +69,11 @@
 		C129301F1BDC4A9700064AD3 /* Jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jsonfile.json; sourceTree = "<group>"; };
 		C12949311BE1504100E39D50 /* BusArrivalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusArrivalTableViewController.swift; sourceTree = "<group>"; };
 		C12949331BE276EA00E39D50 /* LiveRouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRouteMapViewController.swift; sourceTree = "<group>"; };
-		C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteALatiLongJSON.swift; sourceTree = "<group>"; };
 		C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; tabWidth = 6; usesTabs = 1; };
+		C14B9C2F1BE9BD8F00B3BC7D /* RouteAInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteAInfo.plist; sourceTree = "<group>"; };
+		C14B9C311BE9BE6400B3BC7D /* RouteB1Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteB1Info.plist; sourceTree = "<group>"; };
+		C14B9C331BE9BEA600B3BC7D /* RouteB2Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteB2Info.plist; sourceTree = "<group>"; };
+		C14B9C351BE9BEF200B3BC7D /* RouteCInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteCInfo.plist; sourceTree = "<group>"; };
 		C1901E1B1BD6287800BB4887 /* StopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsViewController.swift; sourceTree = "<group>"; };
 		C198DF1C1BD8A1720070B7F8 /* RoutesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesController.swift; sourceTree = "<group>"; };
 		C1F94C4A1BD1632000301771 /* BroncoXpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BroncoXpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +169,6 @@
 		C155F1DF1BD692A50018384E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C12949351BE29F4500E39D50 /* RouteALatiLongJSON.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -206,6 +211,10 @@
 				C1371C211BD2B22A00C4C1E9 /* RoutesTableViewController.swift */,
 				C1F94C541BD1632000301771 /* Assets.xcassets */,
 				C1F94C591BD1632000301771 /* Info.plist */,
+				C14B9C2F1BE9BD8F00B3BC7D /* RouteAInfo.plist */,
+				C14B9C311BE9BE6400B3BC7D /* RouteB1Info.plist */,
+				C14B9C331BE9BEA600B3BC7D /* RouteB2Info.plist */,
+				C14B9C351BE9BEF200B3BC7D /* RouteCInfo.plist */,
 				C155F1DF1BD692A50018384E /* Data */,
 			);
 			path = BroncoXpress;
@@ -363,8 +372,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14B9C321BE9BE6400B3BC7D /* RouteB1Info.plist in Resources */,
 				C1F94C551BD1632000301771 /* Assets.xcassets in Resources */,
+				C14B9C341BE9BEA600B3BC7D /* RouteB2Info.plist in Resources */,
+				C14B9C361BE9BEF200B3BC7D /* RouteCInfo.plist in Resources */,
 				C1F94C531BD1632000301771 /* Main.storyboard in Resources */,
+				C14B9C301BE9BD8F00B3BC7D /* RouteAInfo.plist in Resources */,
 				C12930201BDC4A9700064AD3 /* Jsonfile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +453,6 @@
 			files = (
 				C1901E1C1BD6287800BB4887 /* StopsViewController.swift in Sources */,
 				C1F94C501BD1632000301771 /* ViewController.swift in Sources */,
-				C12949361BE29F4500E39D50 /* RouteALatiLongJSON.swift in Sources */,
 				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
 				C12949321BE1504100E39D50 /* BusArrivalTableViewController.swift in Sources */,
 				C12949341BE276EA00E39D50 /* LiveRouteMapViewController.swift in Sources */,

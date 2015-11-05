@@ -39,7 +39,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detect Beacons</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>Best Results</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

@@ -130,8 +130,6 @@ class BusArrivalTableViewController: UITableViewController{
         
         
         for busArrival in json["Predictions"].arrayValue {
-        
-//        print("--- ")
             
 //            predictionTime = busArrival["PredictionTime"].stringValue
             routeName = busArrival["RouteName"].stringValue

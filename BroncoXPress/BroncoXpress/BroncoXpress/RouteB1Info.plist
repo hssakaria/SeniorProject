@@ -1,14 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   RouteB1Info.plist
-   BroncoXpress
-
-   Created by Hetal Sakaria on 11/3/15.
-   Copyright (c) 2015 Hetal Sakaria. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>CFBundleIdentifier</key>
+	<array>
+		<dict>
+			<key>ID</key>
+			<integer>487167</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.060864</real>
+			<key>Longitude</key>
+			<real>-117.812292</real>
+			<key>Name</key>
+			<string>Interim Design Center</string>
+			<key>RtpiNumber</key>
+			<integer>268</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>485416</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.060437</real>
+			<key>Longitude</key>
+			<real>-117.815626</real>
+			<key>Name</key>
+			<string>Oak Lane/F Lots</string>
+			<key>RtpiNumber</key>
+			<integer>279</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>487168</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.061617</real>
+			<key>Longitude</key>
+			<real>-117.816683</real>
+			<key>Name</key>
+			<string>Cypress Lane/F Lots</string>
+			<key>RtpiNumber</key>
+			<integer>280</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>487169</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.061185</real>
+			<key>Longitude</key>
+			<real>-117.82117</real>
+			<key>Name</key>
+			<string>Residents Hall</string>
+			<key>RtpiNumber</key>
+			<integer>281</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>486773</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.059379</real>
+			<key>Longitude</key>
+			<real>-117.824083</real>
+			<key>Name</key>
+			<string>Bldg. 1</string>
+			<key>RtpiNumber</key>
+			<integer>282</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>34999</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.058031</real>
+			<key>Longitude</key>
+			<real>-117.827096</real>
+			<key>Name</key>
+			<string>Student Health Services</string>
+			<key>RtpiNumber</key>
+			<integer>283</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>485601</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.055372</real>
+			<key>Longitude</key>
+			<real>-117.824873</real>
+			<key>Name</key>
+			<string>Collins College/Kellogg West </string>
+			<key>RtpiNumber</key>
+			<integer>284</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>48396</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.056977</real>
+			<key>Longitude</key>
+			<real>-117.827709</real>
+			<key>Name</key>
+			<string>Bldg 7 - College of Environmental Design</string>
+			<key>RtpiNumber</key>
+			<integer>285</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>33803</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.059535</real>
+			<key>Longitude</key>
+			<real>-117.823514</real>
+			<key>Name</key>
+			<string>Building 94</string>
+			<key>RtpiNumber</key>
+			<integer>286</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>487172</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.06153</real>
+			<key>Longitude</key>
+			<real>-117.820682</real>
+			<key>Name</key>
+			<string>Rose Garden/Coll of Business</string>
+			<key>RtpiNumber</key>
+			<integer>287</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>487173</integer>
+			<key>Image</key>
+			<string>stop_sign_medium.gif</string>
+			<key>Latitude</key>
+			<real>34.060942</real>
+			<key>Longitude</key>
+			<real>-117.815714</real>
+			<key>Name</key>
+			<string>Univ. Police/Parking Services</string>
+			<key>RtpiNumber</key>
+			<integer>288</integer>
+			<key>ShowLabel</key>
+			<false/>
+			<key>ShowStopRtpiNumberLabel</key>
+			<false/>
+			<key>ShowVehicleName</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
 </plist>

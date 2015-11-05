@@ -25,25 +25,26 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     var colorPurple =    UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
     
     override func viewDidLoad() {
-   
+        
         super.viewDidLoad()
+
         parseJSON()
         
     }
     override func viewWillAppear(animated: Bool) {
         
-            //        super.viewWillAppear(animated)
-            let nav = self.navigationController?.navigationBar
-            nav?.barStyle = UIBarStyle.BlackOpaque
-            
-            nav?.titleTextAttributes = [NSForegroundColorAttributeName: colorBlue]
-            nav?.tintColor = UIColor.whiteColor()
-
+        super.viewWillAppear(animated)
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.BlackOpaque
+        
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: colorBlue]
+        nav?.tintColor = UIColor.whiteColor()
+        
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     func parseJSON(){
         
@@ -69,14 +70,11 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         
     }
     /**************************************************************************************
-    getJSONData function will retrive the data (Routes Name) from the JSON using
-    SwiftyJSON library. Routes name ("Name" : " Route A") gets stored into
-    routesArray. numberOfRows = number of Routes are in the JSON file.
-    ***************************************************************************************/
+     getJSONData function will retrive the data (Routes Name) from the JSON using
+     SwiftyJSON library. Routes name ("Name" : " Route A") gets stored into
+     routesArray. numberOfRows = number of Routes are in the JSON file.
+     ***************************************************************************************/
     func getJSONData(json: JSON){
-        //         var objects = [[String: String]]()
-        //        var objects = [String]()
-        //        var routeName = String()
         
         var routeName = String()
         /* actual url for routes */
@@ -84,14 +82,13 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         for routes in json.arrayValue {
             
             routeName = routes["Name"].stringValue
-            //           let obj = [routeName]
-            //            objects.append(routeName)
+
             routesArray.append(routeName)
             numberOfRows = routesArray.count // count how many routes are in the JSON file.
             
         }
         
-        print(routesArray)
+//        print(routesArray)
         
         
         //
@@ -117,24 +114,21 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRows
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell")
-//
-//        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath) as! BusArrivalTimeTableViewCell
-//        
-//        
+     
         /********************************************************************
         Cell text color assigned to green and blue
         if index row = even no then the text color will be green else blue
@@ -153,22 +147,6 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         else{
             cell?.textLabel?.textColor = colorRed
         }
-//
-//        if indexPath.row == 1 {
-//            cell.textLabel?.textColor = colorGreen
-//        }
-//        else if indexPath.row == 2{
-//            cell.textLabel?.textColor = colorPurple
-//            
-//        }
-//        else if indexPath.row  == 3{
-//            cell.textLabel?.textColor = colorBlue
-//            
-//        }
-//        else{
-//            cell.textLabel?.textColor = colorRed
-//        }
-//        
 
         
         /********************************************************************
@@ -199,8 +177,8 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     }
     
     /**************************************************************************************
-    Selected cell's contect gets passed to StopsViewController as a currentRoute.
-    ***************************************************************************************/
+     Selected cell's contect gets passed to StopsViewController as a currentRoute.
+     ***************************************************************************************/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         
