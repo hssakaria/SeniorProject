@@ -13,6 +13,11 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+protocol busStops {
+    
+//    var busStopsArray: [String] {get}
+    func getBusStops() -> [String]
+}
 
 class StopsViewController: UITableViewController{
     
@@ -22,17 +27,23 @@ class StopsViewController: UITableViewController{
     
     @IBOutlet var busStopsNavigationBar: UINavigationItem!
     var currentRoute: String?
-    var busStopsArray = [String]()
-    var numberOfRows = 0
+   var busStopsArray = [String]()
     var stopName = String()
     var busStopsUrl = String()
     
-    var colorGreen = UIColor(red: 0.1333, green: 0.4275, blue: 0, alpha: 1.0)
-    var colorBlue = UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
-    var colorRed = UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
-    var colorPurple = UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
-    var colorBlack = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
+//    var colorGreen = UIColor(red: 0.1333, green: 0.4275, blue: 0, alpha: 1.0)
+//    var colorBlue = UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
+//    var colorRed = UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+//    var colorPurple = UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
+//    var colorBlack = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
+//    
     
+    let colors = [
+        "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
+        "Route B1": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
+        "Route B2":  UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
+        "Route C" : UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+    ]
     
     override func viewDidLoad() {
         
@@ -62,25 +73,9 @@ class StopsViewController: UITableViewController{
         nav?.tintColor = UIColor.whiteColor()
         let currentTitle: String = currentRouteName.title!
         
-        
-        if currentTitle == "Route A"{
-            nav?.barTintColor = colorRed
-            
-        }
-        else if currentRoute == "Route B1 "{
-            nav?.barTintColor = colorGreen
-        }
-        else if currentRoute == "Route B2"{
-            nav?.barTintColor = colorPurple
-        }
-        else if currentRoute == "Route C"{
-            nav?.barTintColor = colorBlue
-        }
-        else{
-            nav?.barTintColor = colorBlack
-            
-        }
-        
+       
+            nav?.barTintColor = self.colors[currentTitle]
+      
         
     }
     
@@ -147,10 +142,8 @@ class StopsViewController: UITableViewController{
             
             busStopsName = busStops["Name"].stringValue
             busStopsArray.append(busStopsName)
-            numberOfRows = busStopsArray.count
         }
         
-        //        print(busStopsArray)
         
     }
     
@@ -160,7 +153,7 @@ class StopsViewController: UITableViewController{
     
     override func tableView(stopsTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return numberOfRows
+        return busStopsArray.count
     }
     
     /**************************************************************************************
@@ -170,7 +163,7 @@ class StopsViewController: UITableViewController{
     override func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = stopsTableView.dequeueReusableCellWithIdentifier("BusStopsCell")
-        cell?.textLabel?.textColor = colorBlack
+//        cell?.textLabel?.textColor = colorBlack
         
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
@@ -180,6 +173,7 @@ class StopsViewController: UITableViewController{
             
             cell!.textLabel?.text  = busStopsArray[indexPath.row]
         }
+     
         return cell!
     }
     
@@ -211,6 +205,15 @@ class StopsViewController: UITableViewController{
             
         }
         
+    }
+    
+    
+    func getBusStops() -> [String] {
+        
+        
+        print(busStopsArray)
+//        busStopsArray = ["Bldg", "Loca"]
+        return busStopsArray
     }
     
 }

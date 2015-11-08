@@ -19,11 +19,13 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     
     var route = String()
     
-    var colorGreen  =    UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0)
-    var colorRed    =    UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
-    var colorBlue   =    UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
-    var colorPurple =    UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
-    
+   
+    let colors = [
+        0   : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
+        1   : UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
+        2   : UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
+        3   : UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+    ]
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.BlackOpaque
         
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: colorBlue]
+//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: self.colors[2]!]
         nav?.tintColor = UIColor.whiteColor()
         
     }
@@ -59,7 +61,6 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
                 
                 let json = JSON(data: data)
                 
-                //                        print(json.arrayValue) // display json file
                 getJSONData(json)
                 
             } else{
@@ -87,23 +88,7 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
             numberOfRows = routesArray.count // count how many routes are in the JSON file.
             
         }
-        
-//        print(routesArray)
-        
-        
-        //
-        /* online */
-        //
-        //            for result in json["results"].arrayValue {
-        //                let title = result["title"].stringValue
-        //                let body = result["body"].stringValue
-        //                let sigs = result["signatureCount"].stringValue
-        //                let obj = ["title": title, "body": body, "sigs": sigs]
-        //                objects.append(obj)
-        //            }
-        
-        //        print(objects)
-        
+
     }
     
     func showError(){
@@ -128,27 +113,19 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell")
-     
+        
+//        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "RouteCell")
+        
+        
+     print("idex  \([indexPath.row])")
+        
+        
         /********************************************************************
         Cell text color assigned to green and blue
         if index row = even no then the text color will be green else blue
         *********************************************************************/
-        if indexPath.row == 1 {
-            cell?.textLabel?.textColor = colorGreen
-        }
-        else if indexPath.row == 2{
-            cell?.textLabel?.textColor = colorPurple
-            
-        }
-        else if indexPath.row  == 3{
-            cell?.textLabel?.textColor = colorBlue
-            
-        }
-        else{
-            cell?.textLabel?.textColor = colorRed
-        }
-
-        
+            cell?.textLabel?.textColor = self.colors[indexPath.row]
+     
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/

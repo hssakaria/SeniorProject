@@ -19,6 +19,7 @@ class BusArrivalTableViewController: UITableViewController{
     var currentStop: String?
     var currentRoute: String?
     var busArrivalTimeArray = [String]()
+    var busInfoArray = [String]()
     var numberOfRows = 0
     var busArrivalTimeURL = String()
     
@@ -26,8 +27,14 @@ class BusArrivalTableViewController: UITableViewController{
     var arrivalTime = String()
     var busRouteNumber = String()
     
+    let parseClassName = [
+        "Route A" : "RouteAStops",
+        "Route B1": "RouteB1Stops",
+        "Route B2": "RouteB2Stops",
+        "Route C" : "RouteCStops"
+    ]
+    
     override func viewDidLoad() {
-        
         
         self.currentStopName.title = currentStop
         
@@ -38,31 +45,18 @@ class BusArrivalTableViewController: UITableViewController{
     
     func parseJSON(){
         
-        var parseClassName = String()
+//        var parseClassName = String()
         
-        if currentRoute == "Route A" {
+         let parseClassName  = self.parseClassName[currentRoute!]!
+        
+        if parseClassName !=  "" {
             
-            parseClassName = "RouteAStops"
-            
-        }else if currentRoute == "Route B1 "{
-            
-            parseClassName = "RouteB1Stops"
-            
-        }else if currentRoute == "Route B2"{
-            
-            parseClassName = "RouteB2Stops"
-            
-        }else if currentRoute == "Route C"{
-            
-            parseClassName = "RouteCStops"
-            
-        }else{
+            makeQuery(parseClassName)
+        } else {
             
             
-            // display error message
         }
         
-        makeQuery(parseClassName)
     }
     func makeQuery(parseClassName: String){
         
@@ -78,6 +72,8 @@ class BusArrivalTableViewController: UITableViewController{
                 for object in objects!{
                     
                     self.busArrivalTimeURL = object["ArrivalTimeURL"] as! String
+                    
+                    print(self.busArrivalTimeURL)
                     
                     self.passURLtoJSON(self.busArrivalTimeURL)
                     
@@ -136,20 +132,20 @@ class BusArrivalTableViewController: UITableViewController{
             minsLeft = busArrival["Minutes"].stringValue
             busName = busArrival["BusName"].stringValue
             arrivalTime = busArrival["ArriveTime"].stringValue
-            
-            busArrivalTimeArray.append(" \(routeName ):   Bus \(busName ) @ \( arrivalTime)")
-            numberOfRows = busArrivalTimeArray.count
+            busInfoArray.append(" \(routeName ):   Bus \(busName )")
+            busArrivalTimeArray.append("@ \( arrivalTime)")
+//            numberOfRows = busArrivalTimeArray.count
         }
-        
-        print(busArrivalTimeArray)
         
     }
     /**************************************************************************************
-    
+    This function returns the number of rows required to fill each cell, which in our case
+     is the size of busArrivalTimeArray.
     ***************************************************************************************/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows
+//        return numberOfRows
+        return busArrivalTimeArray.count
     }
     
     /**************************************************************************************
@@ -158,23 +154,36 @@ class BusArrivalTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
+//        let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
         
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "BusArrivalCell")
+//        let serviceNotAvailable: [String] = ["Service is not available"]
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
         //       let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: <#T##NSIndexPath#>) as UITableViewCell!
         
         if busArrivalTimeArray.count != 0 {
-            cell!.textLabel?.text  = busArrivalTimeArray[indexPath.row]
+            
+//             cell.textLabel?.text = busArrivalTimeArray[indexPath.row]
+            cell.textLabel?.text  = busInfoArray[indexPath.row]
+            cell.detailTextLabel?.text = busArrivalTimeArray[indexPath.row]
+            
 
         }
-   
-        return cell!
+//        if busArrivalTimeArray.count == 0 {
+//            cell!.textLabel?.text  = serviceNotAvailable[0]
+//            
+//        }
+ 
+        return cell
         
     }
     
-    
+    func getArrivalTime() -> [String] {
+        busArrivalTimeArray = ["fsadfds", "fasdfasdfsd"]
+        return busArrivalTimeArray
+    }
     
 }
 

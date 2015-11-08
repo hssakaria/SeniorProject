@@ -35,51 +35,127 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9A-Ny-CjV">
                                 <rect key="frame" x="20" y="20" width="97" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="3Up-Jk-4YB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="G34-97-pw5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="ccj-Gk-STv"/>
+                                    <constraint firstAttribute="width" constant="91" id="vEm-kt-Xap"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3Up-Jk-4YB"/>
+                                        <exclude reference="G34-97-pw5"/>
+                                        <exclude reference="ccj-Gk-STv"/>
+                                        <exclude reference="vEm-kt-Xap"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="3Up-Jk-4YB"/>
+                                        <include reference="G34-97-pw5"/>
+                                        <include reference="ccj-Gk-STv"/>
+                                        <include reference="vEm-kt-Xap"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BroncoXpress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-t6-8zE">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="6de-e6-8t5"/>
+                                    <constraint firstAttribute="width" constant="115.5" id="a2N-Ww-zDS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6de-e6-8t5"/>
+                                        <exclude reference="a2N-Ww-zDS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6de-e6-8t5"/>
+                                        <include reference="a2N-Ww-zDS"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
                                 <rect key="frame" x="86" y="284" width="62" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="8Vy-rl-zqR"/>
+                                    <constraint firstAttribute="height" constant="40" id="BaT-2l-KJq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Live Map"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="135" y="263" width="130" height="40"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8Vy-rl-zqR"/>
+                                        <exclude reference="BaT-2l-KJq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="142" y="328" width="130" height="40"/>
+                                    <mask key="constraints">
+                                        <include reference="8Vy-rl-zqR"/>
+                                        <include reference="BaT-2l-KJq"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <segue destination="XeR-x9-FYN" kind="show" id="isd-dh-SwD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
                                 <rect key="frame" x="241" y="284" width="48" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="M49-qU-Erg"/>
+                                    <constraint firstAttribute="width" constant="130" id="WiP-JX-4by"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Routes"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="135" y="311" width="130" height="40"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M49-qU-Erg"/>
+                                        <exclude reference="WiP-JX-4by"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="142" y="389" width="130" height="40"/>
+                                    <mask key="constraints">
+                                        <include reference="M49-qU-Erg"/>
+                                        <include reference="WiP-JX-4by"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <segue destination="VHp-5q-R2a" kind="show" id="bCo-BI-9Q9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BroncoXpress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-t6-8zE">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4fc-KL-jh9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6f5-wM-LaH"/>
                             <constraint firstItem="P3a-t6-8zE" firstAttribute="top" secondItem="G9A-Ny-CjV" secondAttribute="bottom" constant="4" id="A16-oy-vtj"/>
+                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="top" secondItem="4fc-KL-jh9" secondAttribute="bottom" constant="21" id="IQM-Ab-Eda"/>
+                            <constraint firstItem="G9A-Ny-CjV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SLc-QN-RIc"/>
+                            <constraint firstItem="4fc-KL-jh9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="Z0i-mK-NGB"/>
+                            <constraint firstItem="4fc-KL-jh9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dNM-J5-FFw"/>
+                            <constraint firstAttribute="trailing" secondItem="4fc-KL-jh9" secondAttribute="trailing" constant="115" id="gWR-8x-s7r"/>
                             <constraint firstItem="P3a-t6-8zE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhT-0U-Qvo"/>
+                            <constraint firstItem="P3a-t6-8zE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kAd-cy-pth"/>
                             <constraint firstItem="G9A-Ny-CjV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l9i-cd-7wL"/>
-                            <constraint firstItem="G9A-Ny-CjV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="vDl-XA-y7D"/>
+                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="lXR-st-HNB"/>
+                            <constraint firstAttribute="trailing" secondItem="mkX-dd-2Dc" secondAttribute="trailing" constant="115" id="qwo-1l-nz6"/>
+                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u7b-PX-ICh"/>
+                            <constraint firstItem="G9A-Ny-CjV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="vDl-XA-y7D"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -88,10 +164,20 @@
                                 <exclude reference="P3a-t6-8zE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="A16-oy-vtj"/>
-                                <exclude reference="jhT-0U-Qvo"/>
+                                <exclude reference="SLc-QN-RIc"/>
                                 <exclude reference="l9i-cd-7wL"/>
                                 <exclude reference="vDl-XA-y7D"/>
+                                <exclude reference="A16-oy-vtj"/>
+                                <exclude reference="jhT-0U-Qvo"/>
+                                <exclude reference="kAd-cy-pth"/>
+                                <exclude reference="6f5-wM-LaH"/>
+                                <exclude reference="Z0i-mK-NGB"/>
+                                <exclude reference="dNM-J5-FFw"/>
+                                <exclude reference="gWR-8x-s7r"/>
+                                <exclude reference="IQM-Ab-Eda"/>
+                                <exclude reference="lXR-st-HNB"/>
+                                <exclude reference="qwo-1l-nz6"/>
+                                <exclude reference="u7b-PX-ICh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -101,18 +187,25 @@
                                 <include reference="P3a-t6-8zE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="A16-oy-vtj"/>
-                                <include reference="jhT-0U-Qvo"/>
+                                <include reference="SLc-QN-RIc"/>
                                 <include reference="l9i-cd-7wL"/>
                                 <include reference="vDl-XA-y7D"/>
+                                <include reference="A16-oy-vtj"/>
+                                <include reference="jhT-0U-Qvo"/>
+                                <include reference="kAd-cy-pth"/>
+                                <include reference="6f5-wM-LaH"/>
+                                <include reference="Z0i-mK-NGB"/>
+                                <include reference="dNM-J5-FFw"/>
+                                <include reference="gWR-8x-s7r"/>
+                                <include reference="IQM-Ab-Eda"/>
+                                <include reference="lXR-st-HNB"/>
+                                <include reference="qwo-1l-nz6"/>
+                                <include reference="u7b-PX-ICh"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="BroncoXPress" id="Hsf-v4-Ieb">
-                        <barButtonItem key="backBarButtonItem" title="BroncoXpress" id="Ia4-mt-x9T"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="BroncoXPress" id="Hsf-v4-Ieb"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="LiveMapBtn" destination="4fc-KL-jh9" id="k6T-7a-lCb"/>
                         <outlet property="RoutesBtn" destination="mkX-dd-2Dc" id="1ZL-yg-0lN"/>
@@ -128,22 +221,22 @@
         <scene sceneID="Z4u-lI-rH2">
             <objects>
                 <tableViewController storyboardIdentifier="RoutesStoryBoard" id="VHp-5q-R2a" customClass="RoutesController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="HFj-Wy-zAs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" id="HFj-Wy-zAs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationLevel="7" indentationWidth="10" reuseIdentifier="RouteCell" editingAccessoryType="detailDisclosureButton" rowHeight="87" id="XTJ-05-c8h">
-                                <rect key="frame" x="0.0" y="92" width="414" height="87"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationLevel="7" indentationWidth="10" reuseIdentifier="RouteCell" editingAccessoryType="detailButton" focusStyle="custom" rowHeight="79" id="XTJ-05-c8h">
+                                <rect key="frame" x="0.0" y="92" width="414" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTJ-05-c8h" id="y7b-Zu-h8S">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="5" maxY="0.0"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <segue destination="ZTg-6M-Sf9" kind="show" identifier="routeStopsSegue" id="aHu-Cq-F0X"/>
                                 </connections>
@@ -175,17 +268,17 @@
         <scene sceneID="I70-Gn-pwT">
             <objects>
                 <tableViewController storyboardIdentifier="RouteStopsSBID" modalPresentationStyle="currentContext" id="ZTg-6M-Sf9" customClass="StopsViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="center" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="29" sectionFooterHeight="28" id="BVy-8v-9Ce">
+                    <tableView key="view" clipsSubviews="YES" contentMode="center" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="29" sectionFooterHeight="28" id="BVy-8v-9Ce">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="detailButton" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="100" id="gbe-uL-7gs">
-                                <rect key="frame" x="0.0" y="93" width="414" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="detailButton" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="82" id="gbe-uL-7gs">
+                                <rect key="frame" x="0.0" y="93" width="414" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbe-uL-7gs" id="StM-x7-Lsx">
-                                    <rect key="frame" x="0.0" y="0.0" width="367" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="367" height="81.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -218,17 +311,17 @@
         <scene sceneID="Md8-lz-K7k">
             <objects>
                 <tableViewController storyboardIdentifier="BusArrivalSBID" id="eyH-E8-mIW" userLabel="BusArrivalSchedual" customClass="BusArrivalTableViewController" customModule="BroncoXpress" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q3-6q-VD6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q3-6q-VD6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusArrivalCell" rowHeight="123" id="0NU-Ea-o6O">
-                                <rect key="frame" x="0.0" y="92" width="414" height="123"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusArrivalCell" rowHeight="95" id="0NU-Ea-o6O">
+                                <rect key="frame" x="0.0" y="92" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0NU-Ea-o6O" id="W8n-Hd-1R8">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -276,34 +369,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="liveMapViewID" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeL-PV-u7i">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="liveMapViewID" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeL-PV-u7i">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <variation key="heightClass=compact" preservesSuperviewLayoutMargins="NO"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                    <rect key="frame" x="-7" y="64" width="421" height="716"/>
                                 </variation>
                             </mapView>
+                            <segmentedControl contentMode="scaleToFill" semanticContentAttribute="playback" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PgV-oc-YTY">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Route A"/>
+                                    <segment title="Route B1"/>
+                                    <segment title="Route B2"/>
+                                    <segment title="Route C"/>
+                                </segments>
+                                <color key="tintColor" red="0.050980396570000003" green="0.19215688110000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
+                                <variation key="heightClass=compact" preservesSuperviewLayoutMargins="NO"/>
+                            </segmentedControl>
+                            <segmentedControl contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-Ci-jSM">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Route A"/>
+                                    <segment title="Route B1"/>
+                                    <segment title="Route B2"/>
+                                    <segment title="Route C" width="101"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="322" height="29"/>
+                                </variation>
+                                <connections>
+                                    <action selector="routeSegmentedControll:" destination="XeR-x9-FYN" eventType="valueChanged" id="tF7-4r-2fS"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="QeL-PV-u7i"/>
+                                <exclude reference="PgV-oc-YTY"/>
+                                <exclude reference="XbG-Ci-jSM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact" layoutMarginsFollowReadableWidth="YES">
                             <mask key="subviews">
                                 <include reference="QeL-PV-u7i"/>
+                                <include reference="XbG-Ci-jSM"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Live Map" id="SVp-9d-gzD">
-                        <barButtonItem key="rightBarButtonItem" title="Routes" style="plain" id="XtB-X1-95P">
-                            <color key="tintColor" red="0.050980396570000003" green="0.19215688110000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="jZC-VR-AgI">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="refreshBarBtn:" destination="XeR-x9-FYN" id="hpc-nO-1bh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="theMap" destination="QeL-PV-u7i" id="uvY-kp-PVD"/>
                         <outlet property="titleNavigate" destination="SVp-9d-gzD" id="Rco-C5-LAf"/>
@@ -311,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07d-Ya-6Qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2139" y="-213"/>
+            <point key="canvasLocation" x="2101.5" y="-273"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RYp-vs-RLA">
