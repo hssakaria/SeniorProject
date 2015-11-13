@@ -13,6 +13,11 @@
 		C1486F561BF2804800E39670 /* MakeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1486F551BF2804800E39670 /* MakeAnnotation.swift */; };
 		C1486F5E1BF290FB00E39670 /* BusArrivalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1486F5D1BF290FB00E39670 /* BusArrivalTableViewController.swift */; };
 		C1486F601BF2918600E39670 /* BurArrivalTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1486F5F1BF2918600E39670 /* BurArrivalTimesViewController.swift */; };
+		C1499A281BF5A8D000C77623 /* red_bus.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1499A271BF5A8D000C77623 /* red_bus.gif */; };
+		C14A7E581BF6693600DB4FDF /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A7E571BF6693600DB4FDF /* CustomAnnotation.swift */; };
+		C14A7E5A1BF6761900DB4FDF /* CPP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C14A7E591BF6761900DB4FDF /* CPP.jpg */; };
+		C14A7E5C1BF6771D00DB4FDF /* CPPAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A7E5B1BF6771D00DB4FDF /* CPPAnnotation.swift */; };
+		C14A7E5E1BF6797900DB4FDF /* iCON_29.png in Resources */ = {isa = PBXBuildFile; fileRef = C14A7E5D1BF6797900DB4FDF /* iCON_29.png */; };
 		C14B9C301BE9BD8F00B3BC7D /* RouteAInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C2F1BE9BD8F00B3BC7D /* RouteAInfo.plist */; };
 		C14B9C321BE9BE6400B3BC7D /* RouteB1Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C311BE9BE6400B3BC7D /* RouteB1Info.plist */; };
 		C14B9C341BE9BEA600B3BC7D /* RouteB2Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C14B9C331BE9BEA600B3BC7D /* RouteB2Info.plist */; };
@@ -72,6 +77,11 @@
 		C1486F551BF2804800E39670 /* MakeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeAnnotation.swift; sourceTree = "<group>"; };
 		C1486F5D1BF290FB00E39670 /* BusArrivalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusArrivalTableViewController.swift; sourceTree = "<group>"; };
 		C1486F5F1BF2918600E39670 /* BurArrivalTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurArrivalTimesViewController.swift; sourceTree = "<group>"; };
+		C1499A271BF5A8D000C77623 /* red_bus.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = red_bus.gif; path = ../../../red_bus.gif; sourceTree = "<group>"; };
+		C14A7E571BF6693600DB4FDF /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		C14A7E591BF6761900DB4FDF /* CPP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = CPP.jpg; path = ../../../CPP.jpg; sourceTree = "<group>"; };
+		C14A7E5B1BF6771D00DB4FDF /* CPPAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPPAnnotation.swift; sourceTree = "<group>"; };
+		C14A7E5D1BF6797900DB4FDF /* iCON_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iCON_29.png; path = ../../../../../Dropbox/SeniorProject/iCONS_PNG/iCON_29.png; sourceTree = "<group>"; };
 		C14B9C2F1BE9BD8F00B3BC7D /* RouteAInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteAInfo.plist; sourceTree = "<group>"; };
 		C14B9C311BE9BE6400B3BC7D /* RouteB1Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteB1Info.plist; sourceTree = "<group>"; };
 		C14B9C331BE9BEA600B3BC7D /* RouteB2Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RouteB2Info.plist; sourceTree = "<group>"; };
@@ -172,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				C1486F551BF2804800E39670 /* MakeAnnotation.swift */,
+				C14A7E571BF6693600DB4FDF /* CustomAnnotation.swift */,
+				C14A7E5B1BF6771D00DB4FDF /* CPPAnnotation.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -201,6 +213,9 @@
 		C1F94C4C1BD1632000301771 /* BroncoXpress */ = {
 			isa = PBXGroup;
 			children = (
+				C14A7E5D1BF6797900DB4FDF /* iCON_29.png */,
+				C1499A271BF5A8D000C77623 /* red_bus.gif */,
+				C14A7E591BF6761900DB4FDF /* CPP.jpg */,
 				C1F94C511BD1632000301771 /* Main.storyboard */,
 				C1486F5D1BF290FB00E39670 /* BusArrivalTableViewController.swift */,
 				C1486F5F1BF2918600E39670 /* BurArrivalTimesViewController.swift */,
@@ -378,6 +393,9 @@
 				C14B9C321BE9BE6400B3BC7D /* RouteB1Info.plist in Resources */,
 				C1F94C551BD1632000301771 /* Assets.xcassets in Resources */,
 				C14B9C341BE9BEA600B3BC7D /* RouteB2Info.plist in Resources */,
+				C14A7E5E1BF6797900DB4FDF /* iCON_29.png in Resources */,
+				C14A7E5A1BF6761900DB4FDF /* CPP.jpg in Resources */,
+				C1499A281BF5A8D000C77623 /* red_bus.gif in Resources */,
 				C14B9C361BE9BEF200B3BC7D /* RouteCInfo.plist in Resources */,
 				C1F94C531BD1632000301771 /* Main.storyboard in Resources */,
 				C14B9C301BE9BD8F00B3BC7D /* RouteAInfo.plist in Resources */,
@@ -459,7 +477,9 @@
 				C1486F601BF2918600E39670 /* BurArrivalTimesViewController.swift in Sources */,
 				C1F94C4E1BD1632000301771 /* AppDelegate.swift in Sources */,
 				C12949341BE276EA00E39D50 /* LiveRouteMapViewController.swift in Sources */,
+				C14A7E581BF6693600DB4FDF /* CustomAnnotation.swift in Sources */,
 				C1486F5E1BF290FB00E39670 /* BusArrivalTableViewController.swift in Sources */,
+				C14A7E5C1BF6771D00DB4FDF /* CPPAnnotation.swift in Sources */,
 				C1F94CAA1BD17F2800301771 /* LiveMapViewController.swift in Sources */,
 				C198DF1D1BD8A1720070B7F8 /* RoutesController.swift in Sources */,
 				C1371C221BD2B22A00C4C1E9 /* RoutesTableViewController.swift in Sources */,

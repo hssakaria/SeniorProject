@@ -87,8 +87,8 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
         locationManager.delegate = self
         self.theMap.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         if(CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse){
             
@@ -112,46 +112,20 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     func zoomToRegion(){
         
-        //    here I need to provide route's Latitude and Longitude,
-        
-        
-        let centerLocation = CLLocationCoordinate2D(latitude: cppLatitude, longitude: cppLongtitude)
+        let CPPLocation = CLLocationCoordinate2D(latitude: cppLatitude, longitude: cppLongtitude)
         let mapSpan = MKCoordinateSpanMake(0.02, 0.02)
-        let mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
+        let mapRegion = MKCoordinateRegionMake(CPPLocation, mapSpan)
         
         self.theMap.setRegion(mapRegion, animated: true)
         
-        //
-        let annotations = MKPointAnnotation()
+   
+        let annotation = CPPAnnotation(title: "Cal Poly Pomona",
+            subtitle: "3801 W. Temple Ave. CA 91768 (909) 869 - 7659", coordinate: CPPLocation)
         
-        annotations.coordinate = centerLocation
-        //        let cppInfo = CPPInfo(title: "CPP", address: "3801 W. Temple Ave, CA 91768" ,  phone: "(909) 869-7659", coordinate: CLLocationCoordinate2D(latitude: cppLatitude, longitude:cppLongtitude))
-        //
-        //        theMap.addAnnotation(cppInfo)
-        
-        
-        annotations.title = "Cal Poly Pomona"
-        annotations.subtitle =  "3801 W. Temple Ave. CA 91768 (909) 869 - 7659"
-        //                annotations.subtitle = "(909) 869 - 7659"
-        theMap.addAnnotation(annotations)
+        theMap.addAnnotation(annotation)
         
     }
-    
     /**************************************************************************************
-     If locationManager did fail to locate the Beacon, then AlertView will display an error
-     message.
-     ***************************************************************************************/
-     //
-     //    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-     //
-     //        UIAlertView(title: "Error",
-     //            message: "Sorry, Enable to detect the location",
-     //            delegate:nil,
-     //            cancelButtonTitle: "OK").show()
-     //
-     //    }
-     //
-     /**************************************************************************************
      LocationManager will detect the beacon according its range and dislpay the closest one
      with its assiged RouteName.
      ***************************************************************************************/
@@ -167,10 +141,8 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 self.titleNavigate.title = self.routes[closestBeacon.minor.integerValue]
                 
-                
                 /* Passing detected Route to routeLatiLongJSON class for retriving Data from the Parse */
                 locationManager.startUpdatingLocation()
-                
                 
                 self.getURLFromParseForAnnotationAndPolylineAndLiveMap(self.titleNavigate.title!)
                 theMap.showsUserLocation = true
@@ -184,48 +156,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     func locationManager(manager: CLLocationManager, rangingBeaconsDidFailForRegion region: CLBeaconRegion, withError error: NSError) {
         
-        let alertController = UIAlertController(title: "Choose your route.",
-            message: "System is anable to detect route.", preferredStyle: .Alert)
-        
-        let routeAAction = UIAlertAction(title: "Route A", style: .Default) {
-            UIAlertAction in
-            
-            self.showAction(UIAlertAction.title!)
-            
-        }
-        let routeB1Action = UIAlertAction(title: "Route B1", style: .Default) {
-            UIAlertAction in
-            self.showAction(UIAlertAction.title!)
-            
-        }
-        
-        let routeB2Action = UIAlertAction(title: "Route B2", style: .Default) {
-            UIAlertAction in
-            self.showAction(UIAlertAction.title!)
-            
-        }
-        let routeCAction = UIAlertAction(title: "Route C", style: .Default) {
-            UIAlertAction in
-            
-            self.showAction(UIAlertAction.title!)
-            
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
-            UIAlertAction in }
-        
-        alertController.view.tintColor = UIColor.blackColor()
-        
-        
-        alertController.addAction(routeAAction)
-        alertController.addAction(routeB1Action)
-        alertController.addAction(routeB2Action)
-        alertController.addAction(routeCAction)
-        alertController.addAction(cancelAction)
-        
-        self.presentViewController(alertController, animated: true){}
-        
+        showAlertControllerToHandleRoutes()
         
     }
     func showAction(routeTitle: String){
@@ -362,7 +293,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 self.locationManager.stopRangingBeaconsInRegion(region)
                 
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
                 
             }
             else{
@@ -465,8 +396,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             
             let location = CLLocationCoordinate2DMake(latitudeArray[index], longtitudeArray[index])
             
-            
-            let makeAnnotation = MakeAnnotation(title:   stopNameArray[index] , subtitle: "", coordinate: location)
+            let makeAnnotation = MakeAnnotation(title: stopNameArray[index] , subtitle: "", coordinate: location)
             theMap.addAnnotation(makeAnnotation)
             
         }
@@ -506,20 +436,19 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     func  createLiveMap(name: String, latitude: Double,longtitude: Double){
         
-     
-        let annotation = CLLocationCoordinate2DMake(latitude, longtitude)
-        let makeAnnotation = MakeAnnotation(title: name, subtitle: "" , coordinate: annotation)
         
-       
-
-        theMap.addAnnotation(makeAnnotation)
+        let annotation = CLLocationCoordinate2DMake(latitude, longtitude)
+        
+        
+        let makeAnnotation = CustomAnnotation(title: name, coordinate: annotation)
+        
+   // here remove previous annotation. then add a new one
+        
+        
+    theMap.addAnnotation(makeAnnotation)
         
     }
     
-
-    
-    
-
     
     /**************************************************************************************
      This function will render the map. Each route has its defined color with linewidth of 3.
@@ -546,35 +475,45 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     
     func mapView(mapView: MKMapView,
-        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView {
             
-            if annotation is MakeAnnotation{
-                
-                //                return nil so map view draws "blue dot" for standard user location
-                return nil
+            let reuseId = "chest"
+            let resuePinId = "pin"
+            let cppPinId = "cpp"
+            
+            var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(resuePinId) as? MKPinAnnotationView
+            var busView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            var cppPinView = mapView.dequeueReusableAnnotationViewWithIdentifier(cppPinId)
+
+            
+            if annotation.isKindOfClass(MakeAnnotation.self){
+               
+                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: resuePinId)
+                pin!.canShowCallout = true
+                pin!.animatesDrop = true
+                pin!.tintColor = UIColor.darkGrayColor()
+                //                pin.pinTintColor = self.colors[self.titleNavigate.title!]
+                return pin!
             }
             
-            let reuseId = "pin"
             
-            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-//            var busView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKAnnotation
-            //
-            if pinView == nil {
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            //           if busView == nil {
+            if annotation.isKindOfClass(CustomAnnotation.self){
+                
+                theMap.removeAnnotation(annotation)
+
+                busView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                busView?.image = UIImage(named: "iCON_29.png")
+                return busView!
                 
                 
-                
-//                                pinView?.image = UIImage(named: "blueface.png")
-                pinView!.canShowCallout = true
-                pinView!.animatesDrop = true
-                //                                pinView!.pinTintColor = UIColor.darkGrayColor()
-                pinView!.pinTintColor = self.colors[self.titleNavigate.title!]
             }
-            else {
-                pinView!.annotation = annotation
+            if annotation.isKindOfClass(CPPAnnotation.self) {
+                cppPinView = MKAnnotationView(annotation: annotation, reuseIdentifier: cppPinId)
+                cppPinView?.image = UIImage(named: "CPP.jpg")
             }
             
-            return pinView!
+            return MKAnnotationView()
     }
     
     
@@ -591,12 +530,52 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
 
 private extension LiveRouteMapsViewController {
     
-    
-    
-    
-    
-    
-    
+    func showAlertControllerToHandleRoutes(){
+        
+        
+        let alertController = UIAlertController(title: "Choose your route.",
+            message: "System is anable to detect route.", preferredStyle: .Alert)
+        
+        let routeAAction = UIAlertAction(title: "Route A", style: .Default) {
+            UIAlertAction in
+            
+            self.showAction(UIAlertAction.title!)
+            
+        }
+        let routeB1Action = UIAlertAction(title: "Route B1", style: .Default) {
+            UIAlertAction in
+            self.showAction(UIAlertAction.title!)
+            
+        }
+        
+        let routeB2Action = UIAlertAction(title: "Route B2", style: .Default) {
+            UIAlertAction in
+            self.showAction(UIAlertAction.title!)
+            
+        }
+        let routeCAction = UIAlertAction(title: "Route C", style: .Default) {
+            UIAlertAction in
+            
+            self.showAction(UIAlertAction.title!)
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            UIAlertAction in }
+        
+        alertController.view.tintColor = UIColor.blackColor()
+        
+        
+        alertController.addAction(routeAAction)
+        alertController.addAction(routeB1Action)
+        alertController.addAction(routeB2Action)
+        alertController.addAction(routeCAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true){}
+        
+    }
     
     
 }
