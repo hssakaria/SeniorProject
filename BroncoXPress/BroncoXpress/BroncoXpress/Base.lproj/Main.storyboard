@@ -37,7 +37,6 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="3Up-Jk-4YB"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="G34-97-pw5"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="ccj-Gk-STv"/>
                                     <constraint firstAttribute="width" constant="91" id="vEm-kt-Xap"/>
                                 </constraints>
@@ -47,7 +46,6 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3Up-Jk-4YB"/>
-                                        <exclude reference="G34-97-pw5"/>
                                         <exclude reference="ccj-Gk-STv"/>
                                         <exclude reference="vEm-kt-Xap"/>
                                     </mask>
@@ -55,7 +53,6 @@
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="3Up-Jk-4YB"/>
-                                        <include reference="G34-97-pw5"/>
                                         <include reference="ccj-Gk-STv"/>
                                         <include reference="vEm-kt-Xap"/>
                                     </mask>
@@ -84,7 +81,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
                                 <rect key="frame" x="86" y="284" width="62" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -101,7 +98,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="142" y="328" width="130" height="40"/>
+                                    <rect key="frame" x="135" y="284" width="130" height="40"/>
                                     <mask key="constraints">
                                         <include reference="8Vy-rl-zqR"/>
                                         <include reference="BaT-2l-KJq"/>
@@ -111,7 +108,7 @@
                                     <segue destination="XeR-x9-FYN" kind="show" id="isd-dh-SwD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
                                 <rect key="frame" x="241" y="284" width="48" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -128,7 +125,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="142" y="389" width="130" height="40"/>
+                                    <rect key="frame" x="135" y="345" width="130" height="40"/>
                                     <mask key="constraints">
                                         <include reference="M49-qU-Erg"/>
                                         <include reference="WiP-JX-4by"/>
@@ -138,20 +135,32 @@
                                     <segue destination="VHp-5q-R2a" kind="show" id="bCo-BI-9Q9"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-lZ-O8u">
+                                <rect key="frame" x="86" y="588" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="QmA-DJ-HUh"/>
+                                    <constraint firstAttribute="height" constant="128" id="lz1-j8-9Gj"/>
+                                </constraints>
+                                <string key="text">Hours of Operation:                                                       Regular Academic Year                                                           Route A                                                                        Monday - Thursday 7:30am to 11pm                              Friday - 7:30am to 6:00pm                                           Route B, Route C                                                       Monday - Thursday 7:30am to 8:30pm                        Friday - 7:30am to 2:00pm</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4fc-KL-jh9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6f5-wM-LaH"/>
+                            <constraint firstItem="E2S-lZ-O8u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7E9-fI-iR0"/>
                             <constraint firstItem="P3a-t6-8zE" firstAttribute="top" secondItem="G9A-Ny-CjV" secondAttribute="bottom" constant="4" id="A16-oy-vtj"/>
-                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="top" secondItem="4fc-KL-jh9" secondAttribute="bottom" constant="21" id="IQM-Ab-Eda"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E2S-lZ-O8u" secondAttribute="bottom" constant="20" id="Bgp-rd-m74"/>
+                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="top" secondItem="4fc-KL-jh9" secondAttribute="bottom" constant="15" id="Gb0-by-mYx"/>
                             <constraint firstItem="G9A-Ny-CjV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SLc-QN-RIc"/>
                             <constraint firstItem="4fc-KL-jh9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="Z0i-mK-NGB"/>
                             <constraint firstItem="4fc-KL-jh9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dNM-J5-FFw"/>
                             <constraint firstAttribute="trailing" secondItem="4fc-KL-jh9" secondAttribute="trailing" constant="115" id="gWR-8x-s7r"/>
                             <constraint firstItem="P3a-t6-8zE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhT-0U-Qvo"/>
-                            <constraint firstItem="P3a-t6-8zE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kAd-cy-pth"/>
-                            <constraint firstItem="G9A-Ny-CjV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l9i-cd-7wL"/>
                             <constraint firstItem="mkX-dd-2Dc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="lXR-st-HNB"/>
                             <constraint firstAttribute="trailing" secondItem="mkX-dd-2Dc" secondAttribute="trailing" constant="115" id="qwo-1l-nz6"/>
                             <constraint firstItem="mkX-dd-2Dc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u7b-PX-ICh"/>
@@ -164,17 +173,15 @@
                                 <exclude reference="P3a-t6-8zE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="SLc-QN-RIc"/>
-                                <exclude reference="l9i-cd-7wL"/>
-                                <exclude reference="vDl-XA-y7D"/>
                                 <exclude reference="A16-oy-vtj"/>
                                 <exclude reference="jhT-0U-Qvo"/>
-                                <exclude reference="kAd-cy-pth"/>
+                                <exclude reference="SLc-QN-RIc"/>
+                                <exclude reference="vDl-XA-y7D"/>
                                 <exclude reference="6f5-wM-LaH"/>
                                 <exclude reference="Z0i-mK-NGB"/>
                                 <exclude reference="dNM-J5-FFw"/>
                                 <exclude reference="gWR-8x-s7r"/>
-                                <exclude reference="IQM-Ab-Eda"/>
+                                <exclude reference="Gb0-by-mYx"/>
                                 <exclude reference="lXR-st-HNB"/>
                                 <exclude reference="qwo-1l-nz6"/>
                                 <exclude reference="u7b-PX-ICh"/>
@@ -187,17 +194,15 @@
                                 <include reference="P3a-t6-8zE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="SLc-QN-RIc"/>
-                                <include reference="l9i-cd-7wL"/>
-                                <include reference="vDl-XA-y7D"/>
                                 <include reference="A16-oy-vtj"/>
                                 <include reference="jhT-0U-Qvo"/>
-                                <include reference="kAd-cy-pth"/>
+                                <include reference="SLc-QN-RIc"/>
+                                <include reference="vDl-XA-y7D"/>
                                 <include reference="6f5-wM-LaH"/>
                                 <include reference="Z0i-mK-NGB"/>
                                 <include reference="dNM-J5-FFw"/>
                                 <include reference="gWR-8x-s7r"/>
-                                <include reference="IQM-Ab-Eda"/>
+                                <include reference="Gb0-by-mYx"/>
                                 <include reference="lXR-st-HNB"/>
                                 <include reference="qwo-1l-nz6"/>
                                 <include reference="u7b-PX-ICh"/>
@@ -205,7 +210,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="BroncoXPress" id="Hsf-v4-Ieb"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="LiveMapBtn" destination="4fc-KL-jh9" id="k6T-7a-lCb"/>
                         <outlet property="RoutesBtn" destination="mkX-dd-2Dc" id="1ZL-yg-0lN"/>
@@ -274,11 +280,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="detailButton" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="82" id="gbe-uL-7gs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="gray" accessoryType="disclosureIndicator" indentationLevel="5" indentationWidth="10" reuseIdentifier="BusStopsCell" rowHeight="82" id="gbe-uL-7gs">
                                 <rect key="frame" x="0.0" y="93" width="414" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbe-uL-7gs" id="StM-x7-Lsx">
-                                    <rect key="frame" x="0.0" y="0.0" width="367" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="81.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -310,7 +316,7 @@
         <!--BusArrivalSchedual-->
         <scene sceneID="Md8-lz-K7k">
             <objects>
-                <tableViewController storyboardIdentifier="BusArrivalSBID" id="eyH-E8-mIW" userLabel="BusArrivalSchedual" customClass="BusArrivalTableViewController" customModule="BroncoXpress" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BusArrivalSBID" id="eyH-E8-mIW" userLabel="BusArrivalSchedual" customClass="BusArrivalTimesTableViewController" customModule="BroncoXpress" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q3-6q-VD6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,8 +339,16 @@
                             <outlet property="delegate" destination="eyH-E8-mIW" id="nz5-Lo-K5E"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Arrival Schedual" id="QVK-uy-T7S"/>
+                    <navigationItem key="navigationItem" title="Arrival Schedual" id="QVK-uy-T7S">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="3qW-ay-494">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="wYl-x4-Urv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </refreshControl>
                     <connections>
                         <outlet property="busArrivalTableView" destination="3Q3-6q-VD6" id="Jk7-Ib-2nr"/>
                         <outlet property="currentStopName" destination="QVK-uy-T7S" id="a4r-2C-1Gb"/>
@@ -345,87 +359,17 @@
             <point key="canvasLocation" x="3355.5" y="754"/>
         </scene>
         <!--Live Map-->
-        <scene sceneID="1pp-o9-bWV">
-            <objects>
-                <viewController storyboardIdentifier="LiveMapSBID" wantsFullScreenLayout="YES" id="PjM-7H-pCP" customClass="LiveMapViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Live Map" id="cFl-eA-PsN"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="see-2l-PUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2812.5" y="-382"/>
-        </scene>
-        <!--Live Map-->
         <scene sceneID="D0b-bS-QdO">
             <objects>
                 <viewController storyboardIdentifier="liveMapSBID" id="XeR-x9-FYN" customClass="LiveRouteMapsViewController" customModule="BroncoXpress" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vio-mZ-hgK"/>
-                        <viewControllerLayoutGuide type="bottom" id="0TL-Js-3nH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFit" verticalHuggingPriority="750" layoutMarginsFollowReadableWidth="YES" id="GSL-SN-8bV">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="NL9-90-kNW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="liveMapViewID" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeL-PV-u7i">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                <variation key="heightClass=compact" preservesSuperviewLayoutMargins="NO"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-7" y="64" width="421" height="716"/>
-                                </variation>
-                            </mapView>
-                            <segmentedControl contentMode="scaleToFill" semanticContentAttribute="playback" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PgV-oc-YTY">
-                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="Route A"/>
-                                    <segment title="Route B1"/>
-                                    <segment title="Route B2"/>
-                                    <segment title="Route C"/>
-                                </segments>
-                                <color key="tintColor" red="0.050980396570000003" green="0.19215688110000001" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
-                                <variation key="heightClass=compact" preservesSuperviewLayoutMargins="NO"/>
-                            </segmentedControl>
-                            <segmentedControl contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-Ci-jSM">
-                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="Route A"/>
-                                    <segment title="Route B1"/>
-                                    <segment title="Route B2"/>
-                                    <segment title="Route C" width="101"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="322" height="29"/>
-                                </variation>
-                                <connections>
-                                    <action selector="routeSegmentedControll:" destination="XeR-x9-FYN" eventType="valueChanged" id="tF7-4r-2fS"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="QeL-PV-u7i"/>
-                                <exclude reference="PgV-oc-YTY"/>
-                                <exclude reference="XbG-Ci-jSM"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact" layoutMarginsFollowReadableWidth="YES">
-                            <mask key="subviews">
-                                <include reference="QeL-PV-u7i"/>
-                                <include reference="XbG-Ci-jSM"/>
-                            </mask>
-                        </variation>
-                    </view>
+                        <connections>
+                            <outlet property="delegate" destination="XeR-x9-FYN" id="PES-yX-Pcm"/>
+                        </connections>
+                    </mapView>
                     <navigationItem key="navigationItem" title="Live Map" id="SVp-9d-gzD">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="jZC-VR-AgI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -436,7 +380,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="theMap" destination="QeL-PV-u7i" id="uvY-kp-PVD"/>
+                        <outlet property="theMap" destination="NL9-90-kNW" id="8Lz-qL-BAu"/>
                         <outlet property="titleNavigate" destination="SVp-9d-gzD" id="Rco-C5-LAf"/>
                     </connections>
                 </viewController>

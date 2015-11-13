@@ -13,11 +13,6 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-protocol busStops {
-    
-//    var busStopsArray: [String] {get}
-    func getBusStops() -> [String]
-}
 
 class StopsViewController: UITableViewController{
     
@@ -30,33 +25,24 @@ class StopsViewController: UITableViewController{
    var busStopsArray = [String]()
     var stopName = String()
     var busStopsUrl = String()
-    
-//    var colorGreen = UIColor(red: 0.1333, green: 0.4275, blue: 0, alpha: 1.0)
-//    var colorBlue = UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0)
-//    var colorRed = UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
-//    var colorPurple = UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0)
-//    var colorBlack = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
-//    
-    
+
     let colors = [
         "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
         "Route B1": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
         "Route B2":  UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
         "Route C" : UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
     ]
-    
+
     override func viewDidLoad() {
         
         self.currentRouteName.title = currentRoute
-        
-        
     }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        parseJSON()
+        makeQureyOnParse()
         
     }
     /**************************************************************************************
@@ -73,14 +59,14 @@ class StopsViewController: UITableViewController{
         nav?.tintColor = UIColor.whiteColor()
         let currentTitle: String = currentRouteName.title!
         
-       
-            nav?.barTintColor = self.colors[currentTitle]
+       nav?.barTintColor = self.colors[currentTitle]
       
         
     }
     
     
-    func parseJSON(){
+    
+    func makeQureyOnParse(){
         
         
         let query = PFQuery(className: "BusStopsURL")
@@ -95,12 +81,14 @@ class StopsViewController: UITableViewController{
                     
                     self.busStopsUrl = object["Url"] as! String
                     
-                    self.passURLtoJSON(self.busStopsUrl)
+                    self.convertToNSUrlAndGetJSONData(self.busStopsUrl)
                     
                 }
                 
             } else {
-                print("Error: \(error) \(error!.userInfo)")
+//                print("Error: \(error) \(error!.userInfo)")
+                self.showAlertMessage("Service is not available")
+
             }
         }
         
@@ -110,7 +98,7 @@ class StopsViewController: UITableViewController{
      
      ***************************************************************************************/
     
-    func passURLtoJSON(RouteUrl: String){
+    func convertToNSUrlAndGetJSONData(RouteUrl: String){
         
         if let url = NSURL(string: RouteUrl){
             
@@ -118,11 +106,13 @@ class StopsViewController: UITableViewController{
                 
                 let json = JSON(data: data)
                 
-                self.getJSONData(json)
+                self.retriveJSONData(json)
             }
             else{
                 
                 NSLog("Couldnt load Bus Stops data")
+                self.showAlertMessage("Anabled to connect to WebSerive.")
+
             }
             
             busStopsTableView.reloadData()
@@ -134,7 +124,7 @@ class StopsViewController: UITableViewController{
      
      ***************************************************************************************/
     
-    func getJSONData(json: JSON){
+    func retriveJSONData(json: JSON){
         
         var busStopsName = String()
         
@@ -163,7 +153,6 @@ class StopsViewController: UITableViewController{
     override func tableView(stopsTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = stopsTableView.dequeueReusableCellWithIdentifier("BusStopsCell")
-//        cell?.textLabel?.textColor = colorBlack
         
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
@@ -180,12 +169,15 @@ class StopsViewController: UITableViewController{
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
         stopName = busStopsArray[indexPath.row]
-        let busArrivalTableViewController: BusArrivalTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BusArrivalSBID") as! BusArrivalTableViewController
+        let busArrivalTableViewController: BusArrivalTimesTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BusArrivalSBID") as! BusArrivalTimesTableViewController
         
         busArrivalTableViewController.currentStop = stopName
         
         
     }
+    /**************************************************************************************
+    Pass data (currentStop and currentRoute) to BusArrivalTimesTableViewController.
+     ***************************************************************************************/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -195,7 +187,7 @@ class StopsViewController: UITableViewController{
             
             if let indexPath = tableView.indexPathForCell(cell) {
                 
-                let arrivalController = segue.destinationViewController as! BusArrivalTableViewController
+                let arrivalController = segue.destinationViewController as! BusArrivalTimesTableViewController
                 arrivalController.currentStop = busStopsArray[indexPath.row]
                 arrivalController.currentRoute = currentRoute
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -207,14 +199,27 @@ class StopsViewController: UITableViewController{
         
     }
     
+    /**************************************************************************************
+     Show Alert message.
+     ***************************************************************************************/
     
-    func getBusStops() -> [String] {
+    func showAlertMessage(errorMessage: String){
+        
+        let alertView = UIAlertController(title: "Message", message: errorMessage, preferredStyle: .Alert)
+        let okResponse = UIAlertAction(title: "Ok", style: .Default){
+            UIAlertAction in
+            let routesController = self.navigationController?.viewDidAppear(true) as! RoutesController
+            
+            self.navigationController?.popToViewController(routesController , animated: true)
+            //            self.performSegueWithIdentifier("RouteStopsSBID", sender: self)
+        }
+        
+        alertView.addAction(okResponse)
+        presentViewController(alertView, animated: true, completion: nil)
         
         
-        print(busStopsArray)
-//        busStopsArray = ["Bldg", "Loca"]
-        return busStopsArray
+        
     }
     
-}
+   }
 

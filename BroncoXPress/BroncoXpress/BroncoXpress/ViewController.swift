@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     
         LiveMapBtn.layer.borderWidth = 3
-//        LiveMapBtn.layer.borderColor = UIColor.blueColor().CGColor
          LiveMapBtn.layer.borderColor = UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0).CGColor
         
         

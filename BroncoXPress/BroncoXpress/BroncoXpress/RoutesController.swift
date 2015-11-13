@@ -15,11 +15,10 @@ import SwiftyJSON
 class RoutesController: UITableViewController, NSURLConnectionDelegate {
     
     var routesArray = [String]()
-    var numberOfRows = 0
     
     var route = String()
     
-   
+    
     let colors = [
         0   : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
         1   : UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
@@ -29,18 +28,18 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        parseJSON()
+        
+       convertToNSUrlAndGetJSONData()
         
     }
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
+        
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.BlackOpaque
-        
-//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: self.colors[2]!]
         nav?.tintColor = UIColor.whiteColor()
+        
         
     }
     
@@ -48,7 +47,7 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
      
      ***************************************************************************************/
     
-    func parseJSON(){
+    func convertToNSUrlAndGetJSONData(){
         
         
         /* actual url for routes */
@@ -61,21 +60,24 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
                 
                 let json = JSON(data: data)
                 
-                getJSONData(json)
+                retriveJSONData(json)
                 
             } else{
-                showError()
+                
+                showAlertMessage("Service is not available")
+                
             }
             tableView.reloadData()
         }
         
     }
+    
     /**************************************************************************************
      getJSONData function will retrive the data (Routes Name) from the JSON using
      SwiftyJSON library. Routes name ("Name" : " Route A") gets stored into
      routesArray. numberOfRows = number of Routes are in the JSON file.
      ***************************************************************************************/
-    func getJSONData(json: JSON){
+    func retriveJSONData(json: JSON){
         
         var routeName = String()
         /* actual url for routes */
@@ -83,27 +85,24 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         for routes in json.arrayValue {
             
             routeName = routes["Name"].stringValue
-
+            
             routesArray.append(routeName)
-            numberOfRows = routesArray.count // count how many routes are in the JSON file.
             
         }
+        
+    }
 
-    }
-    
-    func showError(){
-        
-        print("Could not load data")
-        
-        
-    }
-    
     /**************************************************************************************
-     
+     If tableView cell has not data to load, It will display AlerController message.
      ***************************************************************************************/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows
+        if routesArray.count == 0 {
+            
+            showAlertMessage("Service is not available")
+        }
+        
+        return routesArray.count
     }
     
     /**************************************************************************************
@@ -114,22 +113,17 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell")
         
-//        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "RouteCell")
-        
-        
-     print("idex  \([indexPath.row])")
-        
         
         /********************************************************************
         Cell text color assigned to green and blue
         if index row = even no then the text color will be green else blue
         *********************************************************************/
-            cell?.textLabel?.textColor = self.colors[indexPath.row]
-     
+        cell?.textLabel?.textColor = self.colors[indexPath.row]
+        
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
-        //       let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: <#T##NSIndexPath#>) as UITableViewCell!
+        
         
         if routesArray.count != 0 {
             
@@ -174,6 +168,20 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
             }
         }
     }
+    /**************************************************************************************
+     Show Alert message.
+     ***************************************************************************************/
     
-    
+    func showAlertMessage(errorMessage: String){
+        
+        let alertView = UIAlertController(title: "Message", message: errorMessage, preferredStyle: .Alert)
+        let okResponse = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+
+        
+        alertView.addAction(okResponse)
+        presentViewController(alertView, animated: true, completion: nil)
+        
+        
+        
+    }
 }

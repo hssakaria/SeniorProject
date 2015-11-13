@@ -11,9 +11,7 @@ import UIKit
 import SwiftyJSON
 
 class BusArrivalTableViewController: UITableViewController{
-    
-    
-    
+
     @IBOutlet var currentStopName: UINavigationItem!
     @IBOutlet var busArrivalTableView: UITableView!
     var currentStop: String?
@@ -42,12 +40,11 @@ class BusArrivalTableViewController: UITableViewController{
         
     }
     
-    
     func parseJSON(){
         
-//        var parseClassName = String()
+        //        var parseClassName = String()
         
-         let parseClassName  = self.parseClassName[currentRoute!]!
+        let parseClassName  = self.parseClassName[currentRoute!]!
         
         if parseClassName !=  "" {
             
@@ -58,6 +55,7 @@ class BusArrivalTableViewController: UITableViewController{
         }
         
     }
+    
     func makeQuery(parseClassName: String){
         
         let query = PFQuery(className: parseClassName)
@@ -84,13 +82,10 @@ class BusArrivalTableViewController: UITableViewController{
             }
         }
         
-        
-        
-        
     }
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     func passURLtoJSON(RouteUrl: String){
         
@@ -108,17 +103,16 @@ class BusArrivalTableViewController: UITableViewController{
             }
             
             busArrivalTableView.reloadData()
-            
         }
         
     }
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     func getJSONData(json: JSON){
         
-//                var predictionTime = String()
+        //                var predictionTime = String()
         var busName = String()
         var arrivalTime = String()
         var routeName = String()
@@ -127,37 +121,37 @@ class BusArrivalTableViewController: UITableViewController{
         
         for busArrival in json["Predictions"].arrayValue {
             
-//            predictionTime = busArrival["PredictionTime"].stringValue
+            //            predictionTime = busArrival["PredictionTime"].stringValue
             routeName = busArrival["RouteName"].stringValue
             minsLeft = busArrival["Minutes"].stringValue
             busName = busArrival["BusName"].stringValue
             arrivalTime = busArrival["ArriveTime"].stringValue
             busInfoArray.append(" \(routeName ):   Bus \(busName )")
             busArrivalTimeArray.append("@ \( arrivalTime)")
-//            numberOfRows = busArrivalTimeArray.count
+            //            numberOfRows = busArrivalTimeArray.count
         }
         
     }
     /**************************************************************************************
-    This function returns the number of rows required to fill each cell, which in our case
+     This function returns the number of rows required to fill each cell, which in our case
      is the size of busArrivalTimeArray.
-    ***************************************************************************************/
+     ***************************************************************************************/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return numberOfRows
+        //        return numberOfRows
         return busArrivalTimeArray.count
     }
     
     /**************************************************************************************
-    
-    ***************************************************************************************/
+     
+     ***************************************************************************************/
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
+        //        let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
         
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "BusArrivalCell")
-//        let serviceNotAvailable: [String] = ["Service is not available"]
+        //        let serviceNotAvailable: [String] = ["Service is not available"]
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
@@ -165,17 +159,17 @@ class BusArrivalTableViewController: UITableViewController{
         
         if busArrivalTimeArray.count != 0 {
             
-//             cell.textLabel?.text = busArrivalTimeArray[indexPath.row]
+            //             cell.textLabel?.text = busArrivalTimeArray[indexPath.row]
             cell.textLabel?.text  = busInfoArray[indexPath.row]
             cell.detailTextLabel?.text = busArrivalTimeArray[indexPath.row]
             
-
+            
         }
-//        if busArrivalTimeArray.count == 0 {
-//            cell!.textLabel?.text  = serviceNotAvailable[0]
-//            
-//        }
- 
+        //        if busArrivalTimeArray.count == 0 {
+        //            cell!.textLabel?.text  = serviceNotAvailable[0]
+        //
+        //        }
+        
         return cell
         
     }
