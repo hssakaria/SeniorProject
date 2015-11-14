@@ -477,18 +477,19 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     func mapView(mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView {
             
-            let reuseId = "chest"
-            let resuePinId = "pin"
+            let busPinId = "busPin"
+            let stopsPinId = "pin"
             let cppPinId = "cpp"
             
-            var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(resuePinId) as? MKPinAnnotationView
-            var busView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-            var cppPinView = mapView.dequeueReusableAnnotationViewWithIdentifier(cppPinId)
+            var cppPin = mapView.dequeueReusableAnnotationViewWithIdentifier(cppPinId)
+            var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(stopsPinId) as? MKPinAnnotationView
+            var busPin = mapView.dequeueReusableAnnotationViewWithIdentifier(busPinId)
+         
 
             
             if annotation.isKindOfClass(MakeAnnotation.self){
                
-                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: resuePinId)
+                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: stopsPinId)
                 pin!.canShowCallout = true
                 pin!.animatesDrop = true
                 pin!.tintColor = UIColor.darkGrayColor()
@@ -502,15 +503,18 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 theMap.removeAnnotation(annotation)
 
-                busView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                busView?.image = UIImage(named: "iCON_29.png")
-                return busView!
+                busPin = MKAnnotationView(annotation: annotation, reuseIdentifier: busPinId)
+                busPin?.image = UIImage(named: "iCON_29.png")
+                return busPin!
                 
                 
             }
             if annotation.isKindOfClass(CPPAnnotation.self) {
-                cppPinView = MKAnnotationView(annotation: annotation, reuseIdentifier: cppPinId)
-                cppPinView?.image = UIImage(named: "CPP.jpg")
+                cppPin = MKAnnotationView(annotation: annotation, reuseIdentifier: cppPinId)
+                cppPin?.canShowCallout = true
+                
+                cppPin?.image = UIImage(named: "cpp.gif")
+                return cppPin!
             }
             
             return MKAnnotationView()
