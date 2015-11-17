@@ -35,14 +35,14 @@ class BusArrivalTimesTableViewController: UITableViewController{
     
     let parseClassName = [
         "Route A" : "RouteAStops",
-        "Route B1": "RouteB1Stops",
+        "Route B1 ": "RouteB1Stops",
         "Route B2": "RouteB2Stops",
         "Route C" : "RouteCStops"
     ]
     
     let availableServices = [
         "Route A" : "Monday - Thursday 7:30am to 11pm, Friday - 7:30am to 6:00pm",
-        "Route B1": "Monday - Thursday 7:30am to 8:30pm, Friday - 7:30am to 2:00pm",
+        "Route B1 ": "Monday - Thursday 7:30am to 8:30pm, Friday - 7:30am to 2:00pm",
         "Route B2": "Monday - Thursday 7:30am to 8:30pm, Friday - 7:30am to 2:00pm",
         "Route C" : "Monday - Thursday 7:30am to 8:30pm, Friday - 7:30am to 2:00pm"
     ]
@@ -50,7 +50,6 @@ class BusArrivalTimesTableViewController: UITableViewController{
     override func viewDidLoad() {
         
         self.currentStopName.title = currentStop
-        
         
     }
     
@@ -61,9 +60,6 @@ class BusArrivalTimesTableViewController: UITableViewController{
         
         loadData()
         
-        
-        busArrivalTableView.reloadData()
-        
     }
     
     /**************************************************************************************
@@ -73,29 +69,20 @@ class BusArrivalTimesTableViewController: UITableViewController{
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        var count = 0
-//        if busArrivalTimeArray.count == 0 {
-//             let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
-//            cell?.textLabel?.text = "fadsfasd"
-//            
-//            showAlertMessage("There are no arrival predictions at this time.", currentRoute: currentRoute!)
-//            
-//        }
-//        else{
-//            count = busArrivalTimeArray.count
-//        }
+        //
+        //        var count = 0
+        //        if busArrivalTimeArray.count == 0 {
+        //             let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
+        //            cell?.textLabel?.text = "fadsfasd"
+        //
+        //            showAlertMessage("There are no arrival predictions at this time.", currentRoute: currentRoute!)
+        //
+        //        }
+        //        else{
+        //            count = busArrivalTimeArray.count
+        //        }
         return busArrivalTimeArray.count
     }
-    
-    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-  
-        
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
-    }
-
-
     
     /**************************************************************************************
      
@@ -103,35 +90,20 @@ class BusArrivalTimesTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //        let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
-        
-        
-        
-        // added timer here. Table checkes it every 1s and fire parseJSON function. I was not able to try since no data was available.
-        
-        
         
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "BusArrivalCell")
         
-        //        let serviceNotAvailable: [String] = ["Service is not available"]
         /********************************************************************
         Cell display the text from routesArray that contains data from Web.
         *********************************************************************/
-        //       let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: <#T##NSIndexPath#>) as UITableViewCell!
         
-        if busArrivalTimeArray.count != 0 {
+        if self.busArrivalTimeArray.count != 0 {
             
-            // cell.textLabel?.text = busArrivalTimeArray[indexPath.row]
             cell.textLabel?.text  = busInfoArray[indexPath.row]
             cell.detailTextLabel?.text = busArrivalTimeArray[indexPath.row]
             
             
         }
-        
-        //
-        //         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
-        
         
         return cell
         
@@ -139,14 +111,7 @@ class BusArrivalTimesTableViewController: UITableViewController{
     
     func update(){
         
-        print("update ---> \(busArrivalTimeURL)  ")
-        //        let cell =  UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "BusArrivalCell")
-        //
-        //        cell.willRemoveSubview(busArrivalTableView)
         convertURLIntoJSON(busArrivalTimeURL)
-        
-        //        busArrivalTableView.reloadData()
-        
         
     }
     
@@ -161,9 +126,7 @@ class BusArrivalTimesTableViewController: UITableViewController{
         presentViewController(alertView, animated: true, completion: nil)
         
         
-        
     }
-    
     
 }
 
@@ -172,10 +135,6 @@ private extension BusArrivalTimesTableViewController {
     
     
     func loadData(){
-        
-        //        print(" route -->  \(currentRoute)")
-        //        let route = currentRoute
-        //        let parseClassName  = self.parseClassName[route!]!
         
         
         let parseClassName  = self.parseClassName[currentRoute!]!
@@ -240,18 +199,13 @@ private extension BusArrivalTimesTableViewController {
                 
                 NSLog("Couldnt load Bus Stops data")
             }
-            
-            
-            busArrivalTableView.reloadData()
-            
         }
+        
+        busArrivalTableView.reloadData()
         
     }
     
     
-    /**************************************************************************************
-     
-     ***************************************************************************************/
     
     func retriveJSONData(json: JSON){
         

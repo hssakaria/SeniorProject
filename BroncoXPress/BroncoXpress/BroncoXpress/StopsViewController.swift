@@ -20,19 +20,22 @@ class StopsViewController: UITableViewController{
     @IBOutlet var busStopsTableView: UITableView!
     var selectedIndexPath: NSIndexPath?
     
-    @IBOutlet var busStopsNavigationBar: UINavigationItem!
+let stopsName = RetriveDataFromJSON()
+    
+    
+    
     var currentRoute: String?
-   var busStopsArray = [String]()
+    var busStopsArray = [String]()
     var stopName = String()
     var busStopsUrl = String()
-
+    
     let colors = [
         "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
         "Route B1": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
         "Route B2":  UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
-        "Route C" : UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+        "Route C" : UIColor(red: 0.99, green: 0.50, blue: 0, alpha: 1.0)
     ]
-
+    
     override func viewDidLoad() {
         
         self.currentRouteName.title = currentRoute
@@ -59,8 +62,8 @@ class StopsViewController: UITableViewController{
         nav?.tintColor = UIColor.whiteColor()
         let currentTitle: String = currentRouteName.title!
         
-       nav?.barTintColor = self.colors[currentTitle]
-      
+        nav?.barTintColor = self.colors[currentTitle]
+        
         
     }
     
@@ -80,15 +83,16 @@ class StopsViewController: UITableViewController{
                 for object in objects!{
                     
                     self.busStopsUrl = object["Url"] as! String
+                
                     
                     self.convertToNSUrlAndGetJSONData(self.busStopsUrl)
                     
                 }
                 
             } else {
-//                print("Error: \(error) \(error!.userInfo)")
+                //                print("Error: \(error) \(error!.userInfo)")
                 self.showAlertMessage("Service is not available")
-
+                
             }
         }
         
@@ -106,13 +110,15 @@ class StopsViewController: UITableViewController{
                 
                 let json = JSON(data: data)
                 
-                self.retriveJSONData(json)
+                busStopsArray = stopsName.fromJSON(json)
+                
+//                self.retriveJSONData(json)
             }
             else{
                 
                 NSLog("Couldnt load Bus Stops data")
                 self.showAlertMessage("Anabled to connect to WebSerive.")
-
+                
             }
             
             busStopsTableView.reloadData()
@@ -124,18 +130,18 @@ class StopsViewController: UITableViewController{
      
      ***************************************************************************************/
     
-    func retriveJSONData(json: JSON){
-        
-        var busStopsName = String()
-        
-        for busStops in json.arrayValue {
-            
-            busStopsName = busStops["Name"].stringValue
-            busStopsArray.append(busStopsName)
-        }
-        
-        
-    }
+//    func retriveJSONData(json: JSON){
+//        
+//        var busStopsName = String()
+//        
+//        for busStops in json.arrayValue {
+//            
+//            busStopsName = busStops["Name"].stringValue
+//            busStopsArray.append(busStopsName)
+//        }
+//        
+//        
+//    }
     
     /**************************************************************************************
      
@@ -161,8 +167,9 @@ class StopsViewController: UITableViewController{
         if busStopsArray.count != 0 {
             
             cell!.textLabel?.text  = busStopsArray[indexPath.row]
+            cell?.accessoryView?.tintColor = UIColor.blueColor()//  self.colors[currentRoute!]
         }
-     
+        
         return cell!
     }
     
@@ -176,7 +183,7 @@ class StopsViewController: UITableViewController{
         
     }
     /**************************************************************************************
-    Pass data (currentStop and currentRoute) to BusArrivalTimesTableViewController.
+     Pass data (currentStop and currentRoute) to BusArrivalTimesTableViewController.
      ***************************************************************************************/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -208,9 +215,9 @@ class StopsViewController: UITableViewController{
         let alertView = UIAlertController(title: "Message", message: errorMessage, preferredStyle: .Alert)
         let okResponse = UIAlertAction(title: "Ok", style: .Default){
             UIAlertAction in
-            let routesController = self.navigationController?.viewDidAppear(true) as! RoutesController
+//            let routesController = self.navigationController?.viewDidAppear(true) as! RoutesController
             
-            self.navigationController?.popToViewController(routesController , animated: true)
+//            self.navigationController?.popToViewController(routesController , animated: true)
             //            self.performSegueWithIdentifier("RouteStopsSBID", sender: self)
         }
         
@@ -221,5 +228,5 @@ class StopsViewController: UITableViewController{
         
     }
     
-   }
+}
 

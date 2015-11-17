@@ -70,9 +70,7 @@ class BusArrivalTableViewController: UITableViewController{
                 for object in objects!{
                     
                     self.busArrivalTimeURL = object["ArrivalTimeURL"] as! String
-                    
-                    print(self.busArrivalTimeURL)
-                    
+                                        
                     self.passURLtoJSON(self.busArrivalTimeURL)
                     
                 }
@@ -112,23 +110,17 @@ class BusArrivalTableViewController: UITableViewController{
     
     func getJSONData(json: JSON){
         
-        //                var predictionTime = String()
         var busName = String()
         var arrivalTime = String()
         var routeName = String()
-        var minsLeft = String()
-        
         
         for busArrival in json["Predictions"].arrayValue {
             
-            //            predictionTime = busArrival["PredictionTime"].stringValue
             routeName = busArrival["RouteName"].stringValue
-            minsLeft = busArrival["Minutes"].stringValue
             busName = busArrival["BusName"].stringValue
             arrivalTime = busArrival["ArriveTime"].stringValue
             busInfoArray.append(" \(routeName ):   Bus \(busName )")
             busArrivalTimeArray.append("@ \( arrivalTime)")
-            //            numberOfRows = busArrivalTimeArray.count
         }
         
     }
@@ -173,7 +165,6 @@ class BusArrivalTableViewController: UITableViewController{
         return cell
         
     }
-    
     func getArrivalTime() -> [String] {
         busArrivalTimeArray = ["fsadfds", "fasdfasdfsd"]
         return busArrivalTimeArray

@@ -42,22 +42,22 @@ class ViewController: UIViewController {
 //   
         /* For Animated welcome bronco xpress */
         
-        welcomeLabel.center.x = self.view.frame.width + 30
-        
-        UIView.animateWithDuration(4.0, delay: 0, usingSpringWithDamping: 3.0, initialSpringVelocity: 20, options: [], animations: ({
-            
-            self.welcomeLabel.center.x = self.view.frame.width / 2
-       
-        }), completion: nil)
-        
-        broncoXpressLabel.center.x = self.view.frame.width + 30
-        
-        UIView.animateWithDuration(5.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 40, options: [], animations: ({
-            
-            self.broncoXpressLabel.center.x = self.view.frame.width / 2
-            
-        }), completion: nil)
-        
+//        welcomeLabel.center.x = self.view.frame.width + 30
+//        
+//        UIView.animateWithDuration(4.0, delay: 0, usingSpringWithDamping: 3.0, initialSpringVelocity: 20, options: [], animations: ({
+//            
+//            self.welcomeLabel.center.x = self.view.frame.width / 2
+//       
+//        }), completion: nil)
+//        
+//        broncoXpressLabel.center.x = self.view.frame.width + 30
+//        
+//        UIView.animateWithDuration(5.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 40, options: [], animations: ({
+//            
+//            self.broncoXpressLabel.center.x = self.view.frame.width / 2
+//            
+//        }), completion: nil)
+//        
         
         
     }

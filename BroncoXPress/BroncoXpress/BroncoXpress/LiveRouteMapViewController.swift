@@ -21,6 +21,11 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     //    @IBOutlet weak var refreshBtn: UIBarButtonItem!
     
     @IBOutlet weak var theMap: MKMapView!
+    
+    var coordinatesData = RetriveCoordinatesFromJSON()
+    var name = RetriveDataFromJSON()
+    var arrivaldata = BusArrivalTableViewController()
+    
     var timer = NSTimer()
     var polyline: MKPolyline?
     var coordinates: [CLLocationCoordinate2D] = []
@@ -35,13 +40,14 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     var stoplatitudeArray = [Double]()
     var stoplongitudeArray = [Double]()
-    var latitudeArray = [Double]()
-    var longitudeArray = [Double]()
+    var polyLineLatitudeArray = [Double]()
+    var polyLineLongitudeArray = [Double]()
     var routeNameArray = [String]()
     var stopNameArray = [String]()
     var vehicleLatiArray = [Double]()
     var vehicleLongArray = [Double]()
-    var vehicleName = [String]()
+    var vehicleNameArray = [String]()
+    var vehicleHeadingArray = [String]()
     let cppLatitude =  34.0564
     let cppLongtitude =   -117.8217
     
@@ -59,11 +65,20 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     let colors = [
         "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
-        "Route B1": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
+        "Route B1 ": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
         "Route B2": UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
-        "Route C" : UIColor(red: 1, green: 0.0314, blue: 0, alpha: 1.0)
+        "Route C" : UIColor(red: 0.99, green: 0.50, blue: 0, alpha: 1.0)
     ]
     
+    let headingTo = [
+                    ("N"):    UIImage(named: "busPin_N.gif"),
+                    ("S"):    UIImage(named: "busPin_S.gif"),
+                    ("E"):    UIImage(named: "busPin_E.gif"),
+                    ("W"):    UIImage(named: "busPin_W.gif"),
+                    ("NE"):   UIImage(named: "busPin_NE.gif"),
+                    ("NW"):   UIImage(named: "busPin_NW.gif"),
+                    ("SE"):   UIImage(named: "busPin_SE.gif"),
+                    ("SW"):   UIImage(named: "busPin_SW.gif")]
     /**************************************************************************************
      When viewLoad, the navigation bar will change color accoring to route detected.
      and set the region for the map.
@@ -96,14 +111,14 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         }
         
         locationManager.startRangingBeaconsInRegion(region)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
     }
     
     @IBAction func refreshBarBtn(sender: UIBarButtonItem) {
         
         locationManager.startRangingBeaconsInRegion(region)
-        //        locationManager.startUpdatingLocation()
-        
+        update()
         
     }
     /**************************************************************************************
@@ -113,14 +128,14 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     func zoomToRegion(){
         
         let CPPLocation = CLLocationCoordinate2D(latitude: cppLatitude, longitude: cppLongtitude)
-        let mapSpan = MKCoordinateSpanMake(0.02, 0.02)
+        let mapSpan = MKCoordinateSpanMake(0.03, 0.03)
         let mapRegion = MKCoordinateRegionMake(CPPLocation, mapSpan)
         
         self.theMap.setRegion(mapRegion, animated: true)
         
-   
         let annotation = CPPAnnotation(title: "Cal Poly Pomona",
             subtitle: "3801 W. Temple Ave. CA 91768 (909) 869 - 7659", coordinate: CPPLocation)
+        
         
         theMap.addAnnotation(annotation)
         
@@ -141,7 +156,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 self.titleNavigate.title = self.routes[closestBeacon.minor.integerValue]
                 
-                /* Passing detected Route to routeLatiLongJSON class for retriving Data from the Parse */
                 locationManager.startUpdatingLocation()
                 
                 self.getURLFromParseForAnnotationAndPolylineAndLiveMap(self.titleNavigate.title!)
@@ -159,7 +173,36 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         showAlertControllerToHandleRoutes()
         
     }
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        
+        mapView.centerCoordinate = (userLocation.location?.coordinate)!
+    }
+    
+    
+    /**************************************************************************************
+     This function will put annotation and title accourding to detected stop's Latitude and
+     Longtitude.
+     ***************************************************************************************/
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations location: [CLLocation]) {
+        
+        self.passURLtoJSONforLiveMap(self.vehicleUrl)
+        
+        let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
+        
+        let loadLocation = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+      
+        theMap.centerCoordinate = loadLocation
+        theMap.showsUserLocation = true
+        
+        locationManager.stopUpdatingLocation()
+        
+        
+    }
+    
     func showAction(routeTitle: String){
+        
         
         self.getURLFromParseForAnnotationAndPolylineAndLiveMap(routeTitle)
         self.titleNavigate.title  = routeTitle
@@ -187,6 +230,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     func getURLFromParseForAnnotationAndPolylineAndLiveMap(routeName: String){
         
         let query = PFQuery(className: "BusStopsURL")
+        
         query.whereKey("Routes", equalTo: routeName)
         
         
@@ -214,7 +258,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
     }
     
-    
     /**************************************************************************************
      This function pass the stopurl to JSON for retrive Data
      ***************************************************************************************/
@@ -228,7 +271,15 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 let json = JSON(data: data)
                 
-                self.getJSONDataForAnnotationOrPolylineOrLiveMap(json, Id: "stopLatiLong")
+                
+                stoplatitudeArray = coordinatesData.fromJSONToPoints(json, Latitude: "Latitude")
+                stoplongitudeArray = coordinatesData.fromJSONToPoints(json, Latitude: "Longitude")
+                stopNameArray = name.fromJSON(json)
+                
+                createAnnotation(
+                    stoplatitudeArray,
+                    longtitudeArray: stoplongitudeArray,
+                    stopNameArray: stopNameArray)
             }
             else{
                 
@@ -256,7 +307,10 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 let json = JSON(data: data)
                 
-                self.getJSONDataForAnnotationOrPolylineOrLiveMap(json, Id: "routeLatiLong")
+                polyLineLatitudeArray = coordinatesData.fromJSONToPolyLine(json, Latitude: "Latitude")
+                polyLineLongitudeArray = coordinatesData.fromJSONToPolyLine(json, Latitude: "Longitude")
+                
+                createPolyLine(polyLineLatitudeArray, polyLineLongitudeArray: polyLineLongitudeArray)
                 
                 self.locationManager.stopRangingBeaconsInRegion(region)
                 
@@ -273,7 +327,9 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
     }
     /**************************************************************************************
-     This function pass the routeurl to JSON for Live Map Data------------------recall this function for upate.
+     This function pass the routeurl to JSON for Live Map Data.
+     NATimer will recall "update()" function to retrive vahicle's latitude and longitude
+     every 2 seconds.
      ***************************************************************************************/
     
     func passURLtoJSONforLiveMap(vahicleUrl: String){
@@ -284,17 +340,17 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             
             if let data =  try? NSData(contentsOfURL: url, options: []){
                 
-                let json2 = JSON(data: data)
+                let json = JSON(data: data)
                 
-                self.getJSONDataForAnnotationOrPolylineOrLiveMap(json2, Id: "vehicleLatiLong")
+                vehicleLatiArray = coordinatesData.fromJSONToPoints(json, Latitude: "Latitude")
+                vehicleLongArray = coordinatesData.fromJSONToPoints(json, Latitude: "Longitude")
+                vehicleHeadingArray = name.fromJSONgetHeading(json)
+                vehicleNameArray = name.fromJSON(json)
                 
-                
-                print("----json--> \(json2)")
+                createLiveMap( vehicleNameArray, latitudeArray: vehicleLatiArray, longtitudeArray: vehicleLongArray, vehicleHeadingTo: vehicleHeadingArray)
                 
                 self.locationManager.stopRangingBeaconsInRegion(region)
-                
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-                
+
             }
             else{
                 
@@ -302,89 +358,15 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             }
         }
         
-        
     }
     
     func update(){
-        
+    
         passURLtoJSONforLiveMap(vehicleUrl)
-    }
-    /**************************************************************************************
-     According the give ID, this function will retrive the data from JSON object and stores
-     into associated array.
-     ***************************************************************************************/
-    
-    func getJSONDataForAnnotationOrPolylineOrLiveMap(json: JSON, Id: String){
-        
-        
-        if Id == "stopLatiLong" {
-            
-            var stopLatitude = Double()
-            var stopLongitude = Double()
-            var stop = String()
-            
-            for stopData in json.arrayValue{
-                
-                stopLatitude = stopData["Latitude"].doubleValue
-                stopLongitude = stopData["Longitude"].doubleValue
-                stop = stopData["Name"].stringValue
-                
-                stoplatitudeArray.append(stopLatitude)
-                stoplongitudeArray.append(stopLongitude)
-                stopNameArray.append(stop)
-                
-            }
-            
-            
-            createAnnotation(
-                stoplatitudeArray,
-                longtitudeArray: stoplongitudeArray,
-                stopNameArray: stopNameArray)
-            
-        }
-        
-        if Id == "routeLatiLong" {
-            
-            var latitude = Double()
-            var longitude = Double()
-            
-            for stopData in json[0].arrayValue{
-                
-                latitude = stopData["Latitude"].doubleValue
-                longitude = stopData["Longitude"].doubleValue
-                
-                latitudeArray.append(latitude)
-                longitudeArray.append(longitude)
-                
-            }
-            createPolyLine(latitudeArray,longtitudeArray: longitudeArray)
-            
-        }
-        if Id == "vehicleLatiLong" {
-            
-            var latitude = Double()
-            var longitude = Double()
-            var name = String()
-            
-            for vehicleData in json.arrayValue{
-                
-                latitude = vehicleData["Latitude"].doubleValue
-                longitude = vehicleData["Longitude"].doubleValue
-                name = vehicleData["Name"].stringValue
-                vehicleLatiArray.append(latitude)
-                vehicleLongArray.append(longitude)
-                vehicleName.append(name)
-                
-                createLiveMap(name, latitude: latitude, longtitude: longitude)
-                
-            }
-            
-        }
         
     }
     
-    
-    /**************************************************************************************
+     /**************************************************************************************
      This function will put annotation and title accourding to detected stop's Latitude and
      Longtitude.
      ***************************************************************************************/
@@ -396,7 +378,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             
             let location = CLLocationCoordinate2DMake(latitudeArray[index], longtitudeArray[index])
             
-            let makeAnnotation = MakeAnnotation(title: stopNameArray[index] , subtitle: "", coordinate: location)
+            let makeAnnotation = PinAnnotation(title: stopNameArray[index] , subtitle: "", coordinate: location)
             theMap.addAnnotation(makeAnnotation)
             
         }
@@ -406,8 +388,9 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     /**************************************************************************************
      This function will draw a polyline accourding to detected route's Latitude and Longtitude
      ***************************************************************************************/
-    
-    func  createPolyLine(latitudeArray: [Double],longtitudeArray: [Double]){
+     
+     //    func  createPolyLine(latitudeArray: [Double],longtitudeArray: [Double]){
+    func  createPolyLine(polyLineLatitudeArray: [Double], polyLineLongitudeArray: [Double]){
         
         
         var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
@@ -415,9 +398,9 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         let annotations = MKPointAnnotation()
         
         
-        for var index = 0; index < latitudeArray.count; index++ {
+        for var index = 0; index < polyLineLatitudeArray.count; index++ {
             
-            let annotation = CLLocationCoordinate2DMake(latitudeArray[index], longtitudeArray[index])
+            let annotation = CLLocationCoordinate2DMake(polyLineLatitudeArray[index], polyLineLongitudeArray[index])
             annotations.coordinate = annotation
             points.append(annotations.coordinate)
             
@@ -431,28 +414,33 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     /**************************************************************************************
      This function will draw a polyline accourding to detected route's Latitude and Longtitude
      ***************************************************************************************/
-     
-     //    func  createLiveMap(latitudeArray: [Double],longtitudeArray: [Double]){
     
-    func  createLiveMap(name: String, latitude: Double,longtitude: Double){
+    func  createLiveMap(name: [String], latitudeArray: [Double],longtitudeArray: [Double], vehicleHeadingTo: [String]){
         
         
-        let annotation = CLLocationCoordinate2DMake(latitude, longtitude)
         
-        
-        let makeAnnotation = CustomAnnotation(title: name, coordinate: annotation)
-        
-   // here remove previous annotation. then add a new one
-        
-        
-    theMap.addAnnotation(makeAnnotation)
+        for var index = 0; index < latitudeArray.count; index++ {
+            
+            let annotation = CLLocationCoordinate2DMake(latitudeArray[index], longtitudeArray[index])
+            
+            let makeAnnotation = BusAnnotation(title: name[index], subtitle: vehicleHeadingTo[index], coordinate: annotation)
+    
+
+            
+            // get the arrival time using seague 
+            
+            
+            
+            theMap.addAnnotation(makeAnnotation)
+
+        }
         
     }
     
     
     /**************************************************************************************
-     This function will render the map. Each route has its defined color with linewidth of 3.
-     ***************************************************************************************/
+    This function will render the map. Each route has its defined color with linewidth of 3.
+    ***************************************************************************************/
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -475,36 +463,36 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     
     func mapView(mapView: MKMapView,
-        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView {
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
             
-            let busPinId = "busPin"
             let stopsPinId = "pin"
-            let cppPinId = "cpp"
+            let cppPinId   = "cpp"
+            let busPinId   = "busPin"
             
-            var cppPin = mapView.dequeueReusableAnnotationViewWithIdentifier(cppPinId)
-            var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(stopsPinId) as? MKPinAnnotationView
+            var cppPin = mapView.dequeueReusableAnnotationViewWithIdentifier(cppPinId) //as? MKPinAnnotationView
+            var stopPin = mapView.dequeueReusableAnnotationViewWithIdentifier(stopsPinId) as? MKPinAnnotationView
             var busPin = mapView.dequeueReusableAnnotationViewWithIdentifier(busPinId)
-         
-
-            
-            if annotation.isKindOfClass(MakeAnnotation.self){
-               
-                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: stopsPinId)
-                pin!.canShowCallout = true
-                pin!.animatesDrop = true
-                pin!.tintColor = UIColor.darkGrayColor()
-                //                pin.pinTintColor = self.colors[self.titleNavigate.title!]
-                return pin!
-            }
             
             
-            //           if busView == nil {
-            if annotation.isKindOfClass(CustomAnnotation.self){
+            if annotation.isKindOfClass(PinAnnotation.self){
                 
-                theMap.removeAnnotation(annotation)
+                stopPin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: stopsPinId)
+                stopPin!.canShowCallout = true
+                stopPin!.animatesDrop = true
+                //                stopPin!.tintColor = UIColor.darkGrayColor()
+                stopPin!.pinTintColor = self.colors[self.titleNavigate.title!]
+                return stopPin!
+            }
 
+            if annotation.isKindOfClass(BusAnnotation.self){
+                
+                let heading = annotation.subtitle
+                
+               self.theMap.removeAnnotation(annotation)
+                
                 busPin = MKAnnotationView(annotation: annotation, reuseIdentifier: busPinId)
-                busPin?.image = UIImage(named: "iCON_29.png")
+                busPin?.canShowCallout = true
+                busPin?.image = self.headingTo[heading!!]!
                 return busPin!
                 
                 
@@ -512,11 +500,12 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             if annotation.isKindOfClass(CPPAnnotation.self) {
                 cppPin = MKAnnotationView(annotation: annotation, reuseIdentifier: cppPinId)
                 cppPin?.canShowCallout = true
+             
+//                cppPin!.pinTintColor = UIColor.brownColor()
                 
-                cppPin?.image = UIImage(named: "cpp.gif")
+                                cppPin?.image = UIImage(named: "cppPin.gif")
                 return cppPin!
             }
-            
             return MKAnnotationView()
     }
     
@@ -531,6 +520,10 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
 }
+/**************************************************************************************
+ showAlertCotrollerToHandleRoutes display viewAlertController if beacon does no detect
+ the route.
+ ***************************************************************************************/
 
 private extension LiveRouteMapsViewController {
     
@@ -562,14 +555,12 @@ private extension LiveRouteMapsViewController {
             
             self.showAction(UIAlertAction.title!)
             
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
             UIAlertAction in }
         
         alertController.view.tintColor = UIColor.blackColor()
-        
         
         alertController.addAction(routeAAction)
         alertController.addAction(routeB1Action)
@@ -580,6 +571,5 @@ private extension LiveRouteMapsViewController {
         self.presentViewController(alertController, animated: true){}
         
     }
-    
     
 }

@@ -1,5 +1,5 @@
 //
-//  CPPInfo.swift
+//  PinAnnotation.swift
 //  BroncoXpress
 //
 //  Created by Hetal Sakaria on 11/10/15.
@@ -9,7 +9,8 @@
 import MapKit
 import UIKit
 
-class MakeAnnotation: NSObject, MKAnnotation {
+class PinAnnotation: NSObject, MKAnnotation {
+    
     var title: String?
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
