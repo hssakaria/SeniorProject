@@ -24,7 +24,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     var coordinatesData = RetriveCoordinatesFromJSON()
     var name = RetriveDataFromJSON()
-    var arrivaldata = BusArrivalTableViewController()
+    var time = BusArrivalTimesTableViewController()
     
     var timer = NSTimer()
     var polyline: MKPolyline?
@@ -48,20 +48,22 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     var vehicleLongArray = [Double]()
     var vehicleNameArray = [String]()
     var vehicleHeadingArray = [String]()
+    var busArrivalTimeURL = String()
+
     let cppLatitude =  34.0564
     let cppLongtitude =   -117.8217
     
-    
-    let region = CLBeaconRegion(proximityUUID: NSUUID(
-        UUIDString:  "B9407F30-F5F8-466E-AFF9-25556B57FE6D" )!,
-        identifier: "Estimotes")
-    
-    let routes = [
-        52587 : "Route A",
-        //need add one more beacon for route B1
-        22760 : "Route B2",
-        35305 : "Route C"
-    ]
+//    
+//    let region = CLBeaconRegion(proximityUUID: NSUUID(
+//        UUIDString:  "B9407F30-F5F8-466E-AFF9-25556B57FE6D" )!,
+//        identifier: "Estimotes")
+//    
+//    let routes = [
+//        52587 : "Route A",
+//        //need add one more beacon for route B1
+//        22760 : "Route B2",
+//        35305 : "Route C"
+//    ]
     
     let colors = [
         "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
@@ -79,6 +81,8 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                     ("NW"):   UIImage(named: "busPin_NW.gif"),
                     ("SE"):   UIImage(named: "busPin_SE.gif"),
                     ("SW"):   UIImage(named: "busPin_SW.gif")]
+    
+
     /**************************************************************************************
      When viewLoad, the navigation bar will change color accoring to route detected.
      and set the region for the map.
@@ -102,7 +106,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
         locationManager.delegate = self
         self.theMap.delegate = self
-        
+
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         if(CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse){
@@ -110,14 +114,27 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             locationManager.requestWhenInUseAuthorization()
         }
         
-        locationManager.startRangingBeaconsInRegion(region)
+//        locationManager.startRangingBeaconsInRegion(region)
+        
+        
+        
+        locationManager.startUpdatingLocation()
+        
+        // start: stop ranging beacons and start from choosing from the showAlertController
+        
+        showAlertControllerToHandleRoutes()
+
+        self.getURLFromParseForAnnotationAndPolylineAndLiveMap(self.titleNavigate.title!)
+        theMap.showsUserLocation = true
+
+       // end
         self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
     }
     
     @IBAction func refreshBarBtn(sender: UIBarButtonItem) {
         
-        locationManager.startRangingBeaconsInRegion(region)
+//        locationManager.startRangingBeaconsInRegion(region)
         update()
         
     }
@@ -145,24 +162,25 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
      with its assiged RouteName.
      ***************************************************************************************/
     
-    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon],
-        inRegion region: CLBeaconRegion) {
-            
-            let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
-            
-            if(knownBeacons.count > 0){
-                
-                let closestBeacon = knownBeacons[0] as CLBeacon
-                
-                self.titleNavigate.title = self.routes[closestBeacon.minor.integerValue]
-                
-                locationManager.startUpdatingLocation()
-                
-                self.getURLFromParseForAnnotationAndPolylineAndLiveMap(self.titleNavigate.title!)
-                theMap.showsUserLocation = true
-            }
-            
-    }
+//    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon],
+//        inRegion region: CLBeaconRegion) {
+//            
+//            let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
+//            print(knownBeacons)
+//            
+//            if(knownBeacons.count > 0){
+//                
+//                let closestBeacon = knownBeacons[0] as CLBeacon
+//                
+//                self.titleNavigate.title = self.routes[closestBeacon.minor.integerValue]
+//                
+//                locationManager.startUpdatingLocation()
+//                
+//                self.getURLFromParseForAnnotationAndPolylineAndLiveMap(self.titleNavigate.title!)
+//                theMap.showsUserLocation = true
+//            }
+//            
+//    }
     /**************************************************************************************
      LocationManager cannot detect the beacon, It will show an alert contorller to select
      route.
@@ -186,15 +204,17 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     func locationManager(manager: CLLocationManager, didUpdateLocations location: [CLLocation]) {
         
-        self.passURLtoJSONforLiveMap(self.vehicleUrl)
+//        self.passURLtoJSONforLiveMap(self.vehicleUrl)
         
         let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
         
         let loadLocation = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         
-      
         theMap.centerCoordinate = loadLocation
         theMap.showsUserLocation = true
+        
+    
+        print("CLLocation  \(loadLocation)")
         
         locationManager.stopUpdatingLocation()
         
@@ -209,6 +229,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
         
     }
+    
     @IBAction func routeSegmentedControll(sender: UISegmentedControl) {
         
         
@@ -218,9 +239,10 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         
         self.getURLFromParseForAnnotationAndPolylineAndLiveMap(routeSeleted!)
         
-        
-        
+
     }
+    
+
     /**************************************************************************************
      This function will query urls from the Parse. The class name is BusStopURL that contains
      url for the stop's latitude and longtitude (for Annotation) and route's latitude and
@@ -246,7 +268,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                     self.passURLtoJSONForAnnotation(self.stopsUrl)
                     self.passURLtoJSONForPolyline(self.routeUrl)
                     self.passURLtoJSONforLiveMap(self.vehicleUrl)
-                    
                 }
                 
             } else {
@@ -312,7 +333,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 createPolyLine(polyLineLatitudeArray, polyLineLongitudeArray: polyLineLongitudeArray)
                 
-                self.locationManager.stopRangingBeaconsInRegion(region)
+//                self.locationManager.stopRangingBeaconsInRegion(region)
                 
             }
             else{
@@ -349,7 +370,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 createLiveMap( vehicleNameArray, latitudeArray: vehicleLatiArray, longtitudeArray: vehicleLongArray, vehicleHeadingTo: vehicleHeadingArray)
                 
-                self.locationManager.stopRangingBeaconsInRegion(region)
+//                self.locationManager.stopRangingBeaconsInRegion(region)
 
             }
             else{
@@ -430,7 +451,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             // get the arrival time using seague 
             
             
-            
             theMap.addAnnotation(makeAnnotation)
 
         }
@@ -475,13 +495,15 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
             
             
             if annotation.isKindOfClass(PinAnnotation.self){
-                
                 stopPin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: stopsPinId)
                 stopPin!.canShowCallout = true
                 stopPin!.animatesDrop = true
+                
+
                 //                stopPin!.tintColor = UIColor.darkGrayColor()
                 stopPin!.pinTintColor = self.colors[self.titleNavigate.title!]
-                return stopPin!
+                    return stopPin!
+               
             }
 
             if annotation.isKindOfClass(BusAnnotation.self){
@@ -492,6 +514,9 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 busPin = MKAnnotationView(annotation: annotation, reuseIdentifier: busPinId)
                 busPin?.canShowCallout = true
+                
+                
+                
                 busPin?.image = self.headingTo[heading!!]!
                 return busPin!
                 
@@ -505,6 +530,10 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
                 
                                 cppPin?.image = UIImage(named: "cppPin.gif")
                 return cppPin!
+            }
+            if annotation.isKindOfClass(MKUserLocation) {
+                //                return nil so map view draws "blue dot" for standard user location
+                return nil
             }
             return MKAnnotationView()
     }
@@ -531,7 +560,7 @@ private extension LiveRouteMapsViewController {
         
         
         let alertController = UIAlertController(title: "Choose your route.",
-            message: "System is anable to detect route.", preferredStyle: .Alert)
+            message: "    ", preferredStyle: .Alert)
         
         let routeAAction = UIAlertAction(title: "Route A", style: .Default) {
             UIAlertAction in

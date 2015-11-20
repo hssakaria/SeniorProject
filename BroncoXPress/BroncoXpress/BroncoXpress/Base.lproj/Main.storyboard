@@ -13,17 +13,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
-                                <rect key="frame" x="176" y="264" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fc-KL-jh9">
+                                <rect key="frame" x="146" y="264" width="130" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="8Vy-rl-zqR"/>
                                     <constraint firstAttribute="height" constant="40" id="BaT-2l-KJq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Live Map"/>
                                 <variation key="default">
@@ -43,8 +43,39 @@
                                     <segue destination="XeR-x9-FYN" kind="show" id="isd-dh-SwD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
+                                <rect key="frame" x="146" y="341" width="130" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="M49-qU-Erg"/>
+                                    <constraint firstAttribute="width" constant="130" id="WiP-JX-4by"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Routes"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M49-qU-Erg"/>
+                                        <exclude reference="WiP-JX-4by"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="135" y="345" width="130" height="40"/>
+                                    <mask key="constraints">
+                                        <include reference="M49-qU-Erg"/>
+                                        <include reference="WiP-JX-4by"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="VHp-5q-R2a" kind="show" id="bCo-BI-9Q9"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iCON_87.png" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-Mg-8SU">
+                                <rect key="frame" x="176" y="150" width="70" height="70"/>
+                                <animations/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-lZ-O8u">
-                                <rect key="frame" x="86" y="588" width="240" height="128"/>
+                                <rect key="frame" x="180" y="575" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -71,41 +102,6 @@
                                     <rect key="frame" x="0.0" y="-5" width="416" height="44"/>
                                 </variation>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-dd-2Dc">
-                                <rect key="frame" x="183" y="341" width="48" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="M49-qU-Erg"/>
-                                    <constraint firstAttribute="width" constant="130" id="WiP-JX-4by"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Routes"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="M49-qU-Erg"/>
-                                        <exclude reference="WiP-JX-4by"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="135" y="345" width="130" height="40"/>
-                                    <mask key="constraints">
-                                        <include reference="M49-qU-Erg"/>
-                                        <include reference="WiP-JX-4by"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="VHp-5q-R2a" kind="show" id="bCo-BI-9Q9"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iCON_87.png" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-Mg-8SU">
-                                <rect key="frame" x="176" y="150" width="60" height="60"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="3d5-aD-SUc"/>
-                                    <constraint firstAttribute="height" constant="60" id="tBY-mO-4Rt"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -114,17 +110,13 @@
                             <constraint firstItem="E2S-lZ-O8u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7E9-fI-iR0"/>
                             <constraint firstItem="mkX-dd-2Dc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GH5-Pr-L53"/>
                             <constraint firstItem="mkX-dd-2Dc" firstAttribute="top" secondItem="4fc-KL-jh9" secondAttribute="bottom" constant="15" id="Gb0-by-mYx"/>
-                            <constraint firstItem="LiL-Mg-8SU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="LnI-0P-GKT"/>
                             <constraint firstItem="4fc-KL-jh9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="Z0i-mK-NGB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E2S-lZ-O8u" secondAttribute="bottom" constant="20" id="Z8S-5c-cLP"/>
-                            <constraint firstItem="4fc-KL-jh9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bFi-ch-jvE"/>
-                            <constraint firstItem="4fc-KL-jh9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dNM-J5-FFw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E2S-lZ-O8u" secondAttribute="bottom" constant="50" id="Z8S-5c-cLP"/>
                             <constraint firstItem="LiL-Mg-8SU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fKI-o7-vlW"/>
                             <constraint firstAttribute="trailing" secondItem="4fc-KL-jh9" secondAttribute="trailing" constant="115" id="gWR-8x-s7r"/>
                             <constraint firstItem="mkX-dd-2Dc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="115" id="lXR-st-HNB"/>
                             <constraint firstAttribute="trailing" secondItem="mkX-dd-2Dc" secondAttribute="trailing" constant="115" id="qwo-1l-nz6"/>
-                            <constraint firstItem="mkX-dd-2Dc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u7b-PX-ICh"/>
-                            <constraint firstItem="4fc-KL-jh9" firstAttribute="top" secondItem="LiL-Mg-8SU" secondAttribute="bottom" constant="40" id="yfQ-dl-Irs"/>
+                            <constraint firstItem="LiL-Mg-8SU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="sv3-kl-9vH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -133,12 +125,10 @@
                             <mask key="constraints">
                                 <exclude reference="6f5-wM-LaH"/>
                                 <exclude reference="Z0i-mK-NGB"/>
-                                <exclude reference="dNM-J5-FFw"/>
                                 <exclude reference="gWR-8x-s7r"/>
                                 <exclude reference="Gb0-by-mYx"/>
                                 <exclude reference="lXR-st-HNB"/>
                                 <exclude reference="qwo-1l-nz6"/>
-                                <exclude reference="u7b-PX-ICh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -148,12 +138,10 @@
                             <mask key="constraints">
                                 <include reference="6f5-wM-LaH"/>
                                 <include reference="Z0i-mK-NGB"/>
-                                <include reference="dNM-J5-FFw"/>
                                 <include reference="gWR-8x-s7r"/>
                                 <include reference="Gb0-by-mYx"/>
                                 <include reference="lXR-st-HNB"/>
                                 <include reference="qwo-1l-nz6"/>
-                                <include reference="u7b-PX-ICh"/>
                             </mask>
                         </variation>
                     </view>
@@ -174,16 +162,16 @@
             <objects>
                 <tableViewController storyboardIdentifier="RoutesStoryBoard" id="VHp-5q-R2a" customClass="RoutesController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" id="HFj-Wy-zAs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationLevel="7" indentationWidth="10" reuseIdentifier="RouteCell" editingAccessoryType="detailButton" focusStyle="custom" rowHeight="79" id="XTJ-05-c8h">
-                                <rect key="frame" x="0.0" y="92" width="414" height="79"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTJ-05-c8h" id="y7b-Zu-h8S">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="78.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -221,16 +209,16 @@
             <objects>
                 <tableViewController storyboardIdentifier="RouteStopsSBID" modalPresentationStyle="currentContext" id="ZTg-6M-Sf9" customClass="StopsViewController" customModule="BroncoXpress" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="center" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="29" sectionFooterHeight="28" id="BVy-8v-9Ce">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" restorationIdentifier="BusStops" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="4" indentationWidth="8" reuseIdentifier="BusStopsCell" rowHeight="82" id="gbe-uL-7gs">
-                                <rect key="frame" x="0.0" y="93" width="414" height="82"/>
+                                <rect key="frame" x="0.0" y="93" width="600" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbe-uL-7gs" id="StM-x7-Lsx">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="81.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -263,16 +251,16 @@
             <objects>
                 <tableViewController storyboardIdentifier="BusArrivalSBID" id="eyH-E8-mIW" userLabel="BusArrivalSchedual" customClass="BusArrivalTimesTableViewController" customModule="BroncoXpress" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Q3-6q-VD6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusArrivalCell" rowHeight="95" id="0NU-Ea-o6O">
-                                <rect key="frame" x="0.0" y="92" width="414" height="95"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0NU-Ea-o6O" id="W8n-Hd-1R8">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -308,7 +296,7 @@
             <objects>
                 <viewController storyboardIdentifier="LiveMapSBID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XeR-x9-FYN" customClass="LiveRouteMapsViewController" customModule="BroncoXpress" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="vvj-zj-awe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
                     </mapView>
@@ -335,7 +323,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0tk-fu-uVq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4p-mW-Q6Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -69,19 +69,9 @@ class BusArrivalTimesTableViewController: UITableViewController{
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //
-        //        var count = 0
-        //        if busArrivalTimeArray.count == 0 {
-        //             let cell = tableView.dequeueReusableCellWithIdentifier("BusArrivalCell")
-        //            cell?.textLabel?.text = "fadsfasd"
-        //
-        //            showAlertMessage("There are no arrival predictions at this time.", currentRoute: currentRoute!)
-        //
-        //        }
-        //        else{
-        //            count = busArrivalTimeArray.count
-        //        }
+
         return busArrivalTimeArray.count
+
     }
     
     /**************************************************************************************
@@ -102,7 +92,11 @@ class BusArrivalTimesTableViewController: UITableViewController{
             cell.textLabel?.text  = busInfoArray[indexPath.row]
             cell.detailTextLabel?.text = busArrivalTimeArray[indexPath.row]
             
+        }
+        else {
             
+            cell.textLabel?.text = "Service  is not available,"
+            showAlertMessage("There are no arrival predictions at this time.", currentRoute: currentRoute!)
         }
         
         return cell
@@ -133,6 +127,7 @@ class BusArrivalTimesTableViewController: UITableViewController{
 
 private extension BusArrivalTimesTableViewController {
     
+
     
     func loadData(){
         
@@ -207,7 +202,7 @@ private extension BusArrivalTimesTableViewController {
     
     
     
-    func retriveJSONData(json: JSON){
+    func retriveJSONData(json: JSON) {
         
         //                var predictionTime = String()
         var busName = String()

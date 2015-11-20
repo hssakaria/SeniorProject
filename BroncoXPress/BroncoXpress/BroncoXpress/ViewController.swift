@@ -80,19 +80,5 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
  
-    @IBAction func RoutesBtn(sender: AnyObject) {
-//    let query = PFQuery(className: "Routes")
-//        query.w
-//        query.findObjectsInBackgroundWithBlock{(objects, error) -> Void in
-//            if error == nil{
-//                print("Successfully retrived: \(objects)")
-//            }
-//            else{
-//                print("Error: \(error) \(error.userInfo!)")
-//
-//            }
-//        
-//        }
-        
-    }
+
 }
