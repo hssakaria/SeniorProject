@@ -19,9 +19,14 @@ class RetriveCoordinatesFromJSON {
         
         for jsonData in json.arrayValue {
             
-            coordinate = jsonData[Latitude].doubleValue
-            
-            coordinatesArray.append(coordinate)
+            if jsonData.count != 0 {
+                coordinate = jsonData[Latitude].doubleValue
+                
+                coordinatesArray.append(coordinate)
+            }
+            else{
+                print("Data is unavailable!")
+            }
         }
         return coordinatesArray
 

@@ -67,7 +67,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     
     let colors = [
         "Route A" : UIColor(red: 0.21, green: 0.80, blue: 0.02, alpha: 1.0),
-        "Route B1 ": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
+        "Route B1": UIColor(red: 0.9725, green: 0, blue: 0.9882, alpha: 1.0),
         "Route B2": UIColor(red:0.00, green:0.00, blue:1.00, alpha:1.0),
         "Route C" : UIColor(red: 0.99, green: 0.50, blue: 0, alpha: 1.0)
     ]
@@ -213,8 +213,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
         theMap.centerCoordinate = loadLocation
         theMap.showsUserLocation = true
         
-    
-        print("CLLocation  \(loadLocation)")
         
         locationManager.stopUpdatingLocation()
         
@@ -222,7 +220,6 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func showAction(routeTitle: String){
-        
         
         self.getURLFromParseForAnnotationAndPolylineAndLiveMap(routeTitle)
         self.titleNavigate.title  = routeTitle
@@ -250,7 +247,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
      ***************************************************************************************/
     
     func getURLFromParseForAnnotationAndPolylineAndLiveMap(routeName: String){
-        
+
         let query = PFQuery(className: "BusStopsURL")
         
         query.whereKey("Routes", equalTo: routeName)
@@ -528,7 +525,7 @@ class LiveRouteMapsViewController: UIViewController, CLLocationManagerDelegate, 
              
 //                cppPin!.pinTintColor = UIColor.brownColor()
                 
-                                cppPin?.image = UIImage(named: "cppPin.gif")
+                                cppPin?.image = UIImage(named: "cppPin.png")
                 return cppPin!
             }
             if annotation.isKindOfClass(MKUserLocation) {
@@ -568,7 +565,7 @@ private extension LiveRouteMapsViewController {
             self.showAction(UIAlertAction.title!)
             
         }
-        let routeB1Action = UIAlertAction(title: "Route B1", style: .Default) {
+        let routeB1Action = UIAlertAction(title: "Route B1 ", style: .Default) {
             UIAlertAction in
             self.showAction(UIAlertAction.title!)
             

@@ -25,7 +25,6 @@ class RetriveDataFromJSON: NSObject{
         
             
             name = jsonData["Name"].stringValue
-            
             nameArray.append(name)
             
         }

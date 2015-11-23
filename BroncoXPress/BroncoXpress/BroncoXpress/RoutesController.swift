@@ -53,7 +53,6 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
         
         
         /* actual url for routes */
-//          var routesName = String()
         let urlString = "http://www.broncoshuttle.com/Region/0/Routes"
         
         if let url = NSURL(string: urlString){
@@ -61,6 +60,7 @@ class RoutesController: UITableViewController, NSURLConnectionDelegate {
             if let data = try? NSData(contentsOfURL: url, options: []){
                 
                 let json = JSON(data: data)
+                            
                 
                 routesArray = routes.fromJSON(json)
      

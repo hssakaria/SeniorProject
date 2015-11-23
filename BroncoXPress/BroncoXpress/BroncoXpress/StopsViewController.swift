@@ -78,7 +78,6 @@ let stopsName = RetriveDataFromJSON()
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
-                print("Successfully retrieved: \(objects)")
                 
                 for object in objects!{
                     
